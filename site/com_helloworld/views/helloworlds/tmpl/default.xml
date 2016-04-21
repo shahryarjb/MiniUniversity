@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="hellow index">
+		<message>COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<state>
+		<name>دسترسی به اطلاعات</name>
+		<description><![CDATA[تنظیمات و انتخابا ها]]></description>
+		<fields name="request">
+			<fieldset name="request">
+				<field
+					name="text"
+					type="text"
+					label="انتخاب متن جستجو"
+					description="" />
+			</fieldset>
+		</fields>
+	</state>
+</metadata>
