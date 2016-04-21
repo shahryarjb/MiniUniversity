@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+	 name="details"
+	 label="semester" >
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="name"
+				type="text"
+				label="ترم تحصلیلی"
+				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
+				size="30"
+				required="true"
+				default=""
+				/>
+
+		<field
+				name="termtimes"
+				type="calendar"
+				label="زمان میانترم"
+				description=""
+				size="30"
+				default=""
+				format="%Y-%m-%d %H:%M:%S"
+				filter="user_utc"
+				/>
+
+
+		<field
+				name="termtimeex"
+				type="calendar"
+				label="تاریخ امتحان پایان ترم"
+				description=""
+				size="30"
+				default=""
+				format="%Y-%m-%d %H:%M:%S"
+				filter="user_utc"
+				/>
+	</fieldset>
+	
+</form>

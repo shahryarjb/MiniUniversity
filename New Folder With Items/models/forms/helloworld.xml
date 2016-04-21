@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+				addrulepath="/administrator/components/com_helloworld/models/rules"
+>
+	<fieldset
+				name="details"
+				label="COM_HELLOWORLD_HELLOWORLD_DETAILS"
+	>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="name"
+				type="text"
+				label="نام و نام خانوادگی"
+				description=""
+				size="40"
+				class="inputbox"
+				validate="greeting"
+				required="true"
+				default=""
+				/>
+				
+				<field
+				name="dis"
+				type="editor"
+				label="درباره استاد"
+				description=""
+				validate=""
+				class="JComponentHelper::filterText"
+				filter="safehtml"
+				default=""
+				/>
+
+				<field
+			name="profilepic"
+			type="media"
+			label="تصویر استاد"
+			description="COM_CONTENT_FIELD_INTRO_DESC"
+				 />
+
+				<field
+				name="shtich"
+				type="text"
+				label="شماره پرسنلی"
+				buttons="true"
+				description=""
+				class="inputbox"
+				filter="inputbox"
+				required="true"
+				default=""
+				/>
+				<field
+				name="tichlicens"
+				type="text"
+				label="مدرک تحصیلی"
+				buttons="true"
+				description=""
+				class="inputbox"
+				filter="inputbox"
+				default=""
+				/>
+		<field 
+			    name="cat_id"
+			    type="sql"
+			    multiple="true"
+			    query="SELECT id AS value, name AS cat_id FROM #__scquiz_book"
+			    class="inputbox" 
+			    default="" 
+			    label="درس" 
+			    description="" 
+			    required="true" >
+			    <option value="0">درس</option>
+  
+    		</field>
+		<field 
+			    name="term_id"
+			    type="sql"
+			    query="SELECT id AS value, name AS term_id FROM #__scquiz_semester"
+			    class="inputbox" 
+			    default="" 
+			    label="ترم" 
+			    description="" 
+			    required="true" >
+			    <option value="0">ترم تحصیلی</option>
+  
+    		</field>
+    		<field
+				name="email"
+				type="email"
+				label="ایمیل استاد"
+				description=""
+				size="60"
+				class="inputbox"
+				default=""
+				/>
+				<field
+				name="tell"
+				type="text"
+				label="شماره تماس"
+				description=""
+				size="12"
+				class="inputbox"
+				default=""
+				/>
+	</fieldset>
+	
+</form>
