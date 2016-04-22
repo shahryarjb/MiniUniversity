@@ -16,7 +16,7 @@ JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-a
 
 
 	<?php if (($this->output) != null) { 
-		echo $this->output;
+		echo htmlspecialchars($this->output);
 	}else {
 		echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i> جستجویی وجود ندارد !!</p>";
 	} ?>

@@ -30,14 +30,14 @@ JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-a
         <select class="col-sm-2 right cap input-lg" name='term'>
         <option value="">انتخاب ترم تحصیلی</option>
                      <?php foreach($this->terms as $i => $items) { ?>
-                      <option value="<?php echo $items->id;  ?>"><?php echo $items->name;  ?></option>
+                      <option value="<?php echo (int)$items->id;  ?>"><?php echo htmlspecialchars($items->name);  ?></option>
                       <?php } ?>
             </select>
 
              <select class="col-sm-2 right cap input-lg" name="book">
              <option value="">انتخاب کتاب</option>
                        <?php foreach($this->books as $i => $item) { ?>
-                      <option value="<?php echo $item->id;  ?>"><?php echo $item->name;  ?></option>
+                      <option value="<?php echo (int)$item->id;?>"><?php echo htmlspecialchars($item->name);  ?></option>
                       <?php } ?>
                   </select>
           <div class="clearfix"></div>
@@ -62,7 +62,7 @@ foreach($this->items as $i => $item) { ?>
         if (!empty($item->profilepic)) {?>
 
             <a href="<?php echo JRoute::_('index.php?option=com_helloworld&view=helloworld&id=' . str_replace(" ","-",$item->slug) ); ?>">
-                <img src="<?php echo $item->profilepic; ?>" class="img-responsive" alt="تست طراحی سایت">
+                <img src="<?php echo htmlspecialchars($item->profilepic); ?>" class="img-responsive" alt="تست طراحی سایت">
             </a>
                         <div class="clearfix"></div>
       <?php } ?>
@@ -74,7 +74,7 @@ foreach($this->items as $i => $item) { ?>
                  </div>
                               <div class="clearfix"></div>
                     <a href="<?php echo JRoute::_('index.php?option=com_helloworld&view=helloworld&id=' . str_replace(" ","-",$item->slug) ); ?>">
-                                   <h3 class="nametich"><?php echo $item->name; ?> </h3>
+                                   <h3 class="nametich"><?php echo htmlspecialchars($item->name); ?> </h3>
                     </a>	
                               <div class="clearfix"></div>							
 			                     <span class="licens"><i class="fa fa-angle-double-left"></i> <?php  echo substr($item->tichlicens,0, 230) ?> </span>

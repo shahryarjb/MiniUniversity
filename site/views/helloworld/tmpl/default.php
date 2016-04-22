@@ -15,7 +15,7 @@ JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 if (!empty($this->items->nametich))
 {
-$browserbar= "اطلاعات استاد : " . $this->items->nametich;
+$browserbar= "اطلاعات استاد : " . htmlspecialchars($this->items->nametich);
 
 }
 else
@@ -47,11 +47,11 @@ $document->setTitle($browserbar);
 			  	<div class="span6 borderso right">
 			  	<div class="span5 pad inteach">
 			  	<div class="span2">
-			  			<img src="<?php echo $this->items->profilepic; ?>" class="pic img-circle" alt="<?php echo $this->items->nametich; ?>">
+			  			<img src="<?php echo htmlspecialchars($this->items->profilepic); ?>" class="pic img-circle" alt="<?php echo htmlspecialchars($this->items->nametich); ?>">
 			  			</div>
 			  		<div class="span3">
 			  			<h1 class="fonts">
-							<?php echo $this->items->nametich; ?>
+							<?php echo htmlspecialchars($this->items->nametich); ?>
 			  			</h2>
 			  				<div class="clearfix"></div>
 			  			<div class="span11">	
@@ -70,10 +70,10 @@ $document->setTitle($browserbar);
 			  	</div>
 			  	<div class="clearfix"></div>
 			  	<div class="back">
-				  	<div class="span2 tell fonts"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo $this->items->tell; ?>
+				  	<div class="span2 tell fonts"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo htmlspecialchars($this->items->tell); ?>
 				  	<div class="clearfix"></div>
 				  	</div>
-				  	<div class="span4 email"><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo $this->items->email; ?></div>
+				  	<div class="span4 email"><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo htmlspecialchars($this->items->email); ?></div>
 				  	<div class="clearfix"></div>
 			  	</div>
 			  	<div class="clearfix"></div>
@@ -81,7 +81,7 @@ $document->setTitle($browserbar);
 				  	<div class="span2 shtich fonts"><i class="fa fa-plus-square" aria-hidden="true"></i> شماره استادی
 				  	<div class="clearfix"></div>
 				  	</div>
-				  	<div class="span4 shtichnum"><?php echo $this->items->shtich; ?></div>
+				  	<div class="span4 shtichnum"><?php echo htmlspecialchars($this->items->shtich); ?></div>
 				  	<div class="clearfix"></div>
 			  	</div>
 			  	<div class="clearfix"></div>
@@ -89,7 +89,7 @@ $document->setTitle($browserbar);
 				  	<div class="span2 tell fonts"><i class="fa fa-calculator" aria-hidden="true"></i> مدرک تحصیلی
 				  	<div class="clearfix"></div>
 				  	</div>
-				  	<div class="span4 md"><?php echo $this->items->tichlicens; ?></div>
+				  	<div class="span4 md"><?php echo htmlspecialchars($this->items->tichlicens); ?></div>
 				  	<div class="clearfix"></div>
 				  	
 			  	</div>
@@ -122,10 +122,10 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 							?>
 								<div class="back2 borderso fonts">
 									<div class="span4 shtich fonts op"> 
-									<?php echo $mian_term->name;?>
+									<?php echo htmlspecialchars($mian_term->name);?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo $mian_term->qextime; ?></div>
+									<div class="span2 shtichnum green"> <?php echo htmlspecialchars($mian_term->qextime); ?></div>
 									<div class="clearfix"></div>
 								</div>
 								</br>
@@ -151,10 +151,10 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 							{
 							?>
 								<div class="back2 borderso fonts">
-									<div class="span4 shtich fonts op"> <?php echo $payan_term->name; ?>
+									<div class="span4 shtich fonts op"> <?php echo htmlspecialchars($payan_term->name); ?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo $payan_term->endextime; ?></div>
+									<div class="span2 shtichnum green"> <?php echo htmlspecialchars($payan_term->endextime); ?></div>
 									<div class="clearfix"></div>
 								</div>
 								</br>
@@ -177,7 +177,7 @@ if ($this->books)
 { 
 	foreach ($this->books as $mian_term_dis)
 	{
-	echo 'میانترم -> عنوان درسی :  '.$mian_term_dis->name.''; ?> اطلاعات تکمیلی : <?php echo ''.$mian_term_dis->qexdis.'</br></br>'; 
+	echo 'میانترم -> عنوان درسی :  '.$mian_term_dis->name.''; ?> اطلاعات تکمیلی : <?php echo ''.htmlspecialchars($mian_term_dis->qexdis).'</br></br>'; 
 	}
 }
 		?>
@@ -189,7 +189,7 @@ if ($this->books)
 { 
 foreach ($this->books as $payan_term_dis)
 {
-	echo 'پایان ترم -> عنوان درسی : '.$payan_term_dis->name.''; ?> اطلاعات تکمیلی : <?php echo ''.$payan_term_dis->endexdis.'</br></br>'; 
+	echo 'پایان ترم -> عنوان درسی : '.htmlspecialchars($payan_term_dis->name).''; ?> اطلاعات تکمیلی : <?php echo ''.htmlspecialchars($payan_term_dis->endexdis).'</br></br>'; 
 }
 }
 																?>
@@ -229,14 +229,3 @@ foreach ($this->books as $payan_term_dis)
 
 		  </div><!-- container-fluid -->
 <?php } ?>
-
-
-
-
-
-
-
-
-<!-- 	<?php echo $this->items->name; ?>
-	
-	<?php echo $this->items->category; ?>  -->
