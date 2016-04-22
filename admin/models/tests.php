@@ -1,19 +1,11 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_helloworld
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @subpackage  com_MiniUniversity
  */
-// No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-/**
- * HelloWorldList Model
- *
- * @since  0.0.1
- */
 class HelloWorldModelTests extends JModelList
 {
 
