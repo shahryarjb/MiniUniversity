@@ -1,16 +1,11 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_helloworld
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @subpackage  com_MiniUniversity
  */
 defined('_JEXEC') or die('Restricted access');
-/**
- *
- * @since  0.0.1
- */
+
 class HelloWorldModelHelloWorld extends JModelItem
 {
 
@@ -37,13 +32,12 @@ class HelloWorldModelHelloWorld extends JModelItem
 		
 		return $data;
 	}
-	//======================================
 	public function getBook()
 	{
 		$a =HelloWorldModelHelloWorld::getItem();
 		if (!empty($a))
 		{
-			$cat_id =(explode(',', $a->cat_id));  // convert cat_id to array
+			$cat_id =(explode(',', $a->cat_id)); 
 			
 			$db    = JFactory::getDbo();
 			$query = $db->getQuery(true);

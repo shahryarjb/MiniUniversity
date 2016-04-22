@@ -1,12 +1,9 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  com_search
- *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @subpackage  com_MiniUniversity
  */
-
 defined('_JEXEC') or die;
 
 use Joomla\Registry\Registry;
@@ -18,30 +15,8 @@ use Joomla\Registry\Registry;
 class HelloWorldViewSearch extends JViewLegacy
 {
 	public function display($tpl = null) {
-		
-			// $rows1= HelloWorldModelSearch::term();
-			// $optionHtml1 = '';
-			// $optionHtml1 .='<select class="col-sm-2 right cap input-lg" name="term">';
-			// $optionHtml1 .='<option value="">انتخاب کنید</option>';
 
-			// 	foreach ($rows1 as $result) {
-   //    	 				$optionHtml1 .=  ("<option value='{$result->id}'>{$result->name}</option>");
-	  //   			}
-			//     		$optionHtml1 .= '</select>';
-			// 		$this->term =  $optionHtml1;
-
-			// $rows2= HelloWorldModelSearch::reshte();
-			// $optionHtml2 = '';
-			// $optionHtml2 .='<select class="col-sm-2 right cap input-lg" name="book">';
-			// $optionHtml2 .='<option value="">انتخاب کنید</option>';
-
-			// 	foreach ($rows2 as $result) {
-   //    	 				$optionHtml2 .=  ("<option value='{$result->id}'>{$result->name}</option>");
-	  //  			}
-	   			
-			//     		$optionHtml2 .= '</select>';
-			// 		$this->reshte =  $optionHtml2;
-					$optionHtml3 = '';
+	$optionHtml3 = '';
 	
 	$out= $this->get('data');
 	if (isset($out)) {

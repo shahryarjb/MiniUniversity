@@ -5,7 +5,6 @@ defined('_JEXEC') or die;
 function helloworldBuildRoute(&$query)
 {
 	$segments = array();
-	//==================================
 	
 	if ((isset($query['view'])) && ($query['view'] == 'search') )
 	{
@@ -22,9 +21,6 @@ function helloworldBuildRoute(&$query)
 	return $segments;
 }
 
-/**
- * Parse the segments of a URL.
- */
 function helloworldParseRoute($segments)
 {
 	$vars = array();

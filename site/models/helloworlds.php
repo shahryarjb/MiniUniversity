@@ -1,29 +1,13 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_helloworld
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @subpackage  com_MiniUniversity
  */
 defined('_JEXEC') or die('Restricted access');
-/**
- *
- * @since  0.0.1
- */
+
 class HelloWorldModelHelloWorlds extends JModelList
 {
-	/**
-	 * @var object item
-	 */
-	/**
-	 * @return	void
-	 * @since	2.5
-	/**
-	 * Get the message
-	 * @return object The message to be displayed to the user
-	 */
-
 
 	public function getListQuery() {		
 		if (!isset($this->item)) 

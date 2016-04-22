@@ -1,19 +1,12 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  com_search
- *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @subpackage  com_MiniUniversity
  */
 
 defined('_JEXEC') or die;
 
-/**
- * Search Component Search Model
- *
- * @since  1.5
- */
 class HelloWorldModelSearch extends JModelLegacy
 {
 
@@ -21,22 +14,14 @@ class HelloWorldModelSearch extends JModelLegacy
 	//================================
 	protected $_data2 = null;
 
-	/**
-	 * Constructor
-	 *
-	 * @since 1.5
-	 */
 	public function __construct()
 	{
 		parent::__construct();
 
-		// Get configuration
 		$app    = JFactory::getApplication();
 		$config = JFactory::getConfig();
 
-		// Get parameters.
 		$params = $app->getParams();	
-//===================== get data from form
         		$keyword  = urldecode($app->input->getString('searchword'));
 		//$term=$app->input->get('term', 0 ,'INT');
         		$term=$app->input->getInt('term');
@@ -44,7 +29,6 @@ class HelloWorldModelSearch extends JModelLegacy
 		$this->setData($keyword,$term,$book);
 		
 	}
-//==========================================
 public function setData($keyword,$term,$book) {
 	$this->setState('searchword', $keyword);
 	$this->setState('term', $term);
