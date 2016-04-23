@@ -9,9 +9,11 @@ JHtml::stylesheet(JURI::root().'components/com_helloworld/css/style.css');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+require_once JPATH_SITE .'/components/com_helloworld/helpers/jdf.php';
+
 if (!empty($this->items->nametich))
 {
-$browserbar= "اطلاعات استاد : " . htmlspecialchars($this->items->nametich);
+$browserbar= "اطلاعات استاد : " .htmlspecialchars($this->items->nametich);
 
 }
 else
@@ -20,6 +22,7 @@ $browserbar='چنین استادی وجود ندارد';
 }
 $document = JFactory::getDocument();
 $document->setTitle($browserbar);
+$time_stamp = $this->getModel('helloworld'); 
 ?>
 <?php
   if (empty($this->items->tichid)) { 
@@ -121,7 +124,7 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 									<?php echo htmlspecialchars($mian_term->name);?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo htmlspecialchars($mian_term->qextime); ?></div>
+									<div class="span2 shtichnum green"> <?php echo jdate("o:m:j",$time_stamp->convert_date_to_unix($mian_term->qextime)); ?></div>
 									<div class="clearfix"></div>
 								</div>
 								</br>
@@ -150,7 +153,7 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 									<div class="span4 shtich fonts op"> <?php echo htmlspecialchars($payan_term->name); ?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo htmlspecialchars($payan_term->endextime); ?></div>
+									<div class="span2 shtichnum green"> <?php echo jdate("o:m:j",$time_stamp->convert_date_to_unix($payan_term->endextime)); ?></div>
 									<div class="clearfix"></div>
 								</div>
 								</br>
