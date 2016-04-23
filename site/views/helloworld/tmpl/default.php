@@ -11,18 +11,15 @@ JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 require_once JPATH_SITE .'/components/com_helloworld/helpers/jdf.php';
 
-if (!empty($this->items->nametich))
-{
-$browserbar= "اطلاعات استاد : " .htmlspecialchars($this->items->nametich);
+	if (!empty($this->items->nametich)) {
+			$browserbar= "اطلاعات استاد : " .htmlspecialchars($this->items->nametich);
+		} else {
+		$browserbar='چنین استادی وجود ندارد';	
+	}
 
-}
-else
-{
-$browserbar='چنین استادی وجود ندارد';	
-}
-$document = JFactory::getDocument();
-$document->setTitle($browserbar);
-$time_stamp = $this->getModel('helloworld'); 
+		$document = JFactory::getDocument();
+		$document->setTitle($browserbar);
+		$time_stamp = $this->getModel('helloworld'); 
 ?>
 <?php
   if (empty($this->items->tichid)) { 
