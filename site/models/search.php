@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die;
 
-class HelloWorldModelSearch extends JModelLegacy
+class MiniUniversityModelSearch extends JModelLegacy
 {
 
 
@@ -47,7 +47,7 @@ public function setData($keyword,$term,$book) {
 	if (($keyword != '') or ($term != '')  or ( $book != '') )
 	{
 			$query->select('t.*,CASE WHEN CHAR_LENGTH(t.name) THEN CONCAT_WS(":", t.id, t.name) ELSE t.name END as slug');
-			$query->from('#__scquiz_teacher AS t');
+			$query->from('#__miniuniver_teacher AS t');
 			
 			if ($keyword != '')
 			{
@@ -79,7 +79,7 @@ public function setData($keyword,$term,$book) {
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->select('id,name')
-			->from('#__scquiz_semester');
+			->from('#__miniuniver_semester');
 		$db->setQuery($query);
 		$rows = $db->loadObjectList();
 		
@@ -90,7 +90,7 @@ public function setData($keyword,$term,$book) {
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->select('id,name')
-			->from('#__scquiz_book');
+			->from('#__miniuniver_book');
 		$db->setQuery($query);
 		$rows = $db->loadObjectList();
 		
@@ -102,7 +102,7 @@ public function setData($keyword,$term,$book) {
 			$db    = JFactory::getDbo();
 			$queryy = $db->getQuery(true);
 			$queryy->select('*');
-			$queryy->from('#__scquiz_semester');
+			$queryy->from('#__miniuniver_semester');
 			$db->setQuery($queryy);
 			$result = $db->loadObjectList();
 			return $result;
@@ -113,7 +113,7 @@ public function setData($keyword,$term,$book) {
 			$db    = JFactory::getDbo();
 			$queryy = $db->getQuery(true);
 			$queryy->select('*');
-			$queryy->from('#__scquiz_book');
+			$queryy->from('#__miniuniver_book');
 			$db->setQuery($queryy);
 			$result = $db->loadObjectList();
 			return $result;

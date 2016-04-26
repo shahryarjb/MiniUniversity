@@ -11,21 +11,21 @@ JHtml::_('bootstrap.tooltip');
 
 $lang = JFactory::getLanguage();
 $upper_limit = $lang->getUpperLimitSearchWord();
-JHtml::stylesheet(JURI::root().'components/com_helloworld/css/style.css');
+JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 ?>
-<form id="searchForm" action="<?php echo JRoute::_('index.php?option=com_helloworld&view=search');?>" method="post" class="form-horizontal">
+<form id="searchForm" action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-horizontal">
 
 		<div class="form-group col-sm-12 right">
 			
-		<input type="text" name="searchword" placeholder="<?php echo JText::_('لطفا نام استاد مورد نظر را وارد نمایید'); ?>" id="search-searchword" size="10" maxlength="<?php echo $upper_limit; ?>" value="" class="col-sm-5 right pad" />
+		<input type="text" name="searchword" placeholder="<?php echo JText::_('COM_MINIUNIVERSITY_ENTER_TEACHER_NAME_TO_SEARCH'); ?>" id="search-searchword" size="10" maxlength="<?php echo $upper_limit; ?>" value="" class="col-sm-5 right pad" />
 						<?php echo $this->term; ?>
 						<?php echo $this->reshte; ?>
 
 			<div class="clearfix"></div>
-			<button name="Search"  class="btn btn-primary btn-lg right" title="<?php echo JHtml::tooltipText('جتسجو');?>"><span class="icon-search"></span><?php echo JText::_('جستجو'); ?></button>
+			<button name="Search"  class="btn btn-primary btn-lg right" title="<?php echo JHtml::tooltipText(JText::_('COM_MINIUNIVERSITY_SEARCH'));?>"><span class="icon-search"></span><?php echo JText::_('COM_MINIUNIVERSITY_SEARCH'); ?></button>
 			
 		</div>
 		<div class="clearfix"></div>

@@ -2,7 +2,7 @@
 
 defined('_JEXEC') or die;
 
-function helloworldBuildRoute(&$query)
+function miniuniversityBuildRoute(&$query)
 {
 	$segments = array();
 	
@@ -21,13 +21,13 @@ function helloworldBuildRoute(&$query)
 	return $segments;
 }
 
-function helloworldParseRoute($segments)
+function miniuniversityParseRoute($segments)
 {
 	$vars = array();
 	
 	if ($segments[0] != 'search')
 	{	
-	$vars['view']= 'helloworld';
+	$vars['view']= 'teacher';
 	$id = explode(':', $segments[0]);
 	$vars['id'] = (int) $id[0];
        }

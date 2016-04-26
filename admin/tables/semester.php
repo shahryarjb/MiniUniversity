@@ -6,12 +6,12 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldTableSemester extends JTable
+class MiniUniversityTableSemester extends JTable
 {
 
 	function __construct(&$db)
 	{
-		parent::__construct('#__scquiz_semester', 'id', $db);
+		parent::__construct('#__miniuniver_semester', 'id', $db);
 	}
 
 	public function bind($array, $ignore = '')
@@ -51,7 +51,7 @@ class HelloWorldTableSemester extends JTable
 	protected function _getAssetName()
 	{
 		$k = $this->_tbl_key;
-		return 'com_helloworld.message.'.(int) $this->$k;
+		return 'com_miniuniversity.message.'.(int) $this->$k;
 	}
 
 	protected function _getAssetTitle()
@@ -66,11 +66,11 @@ class HelloWorldTableSemester extends JTable
 
 		if (($this->catid)&& !empty($this->catid))
 		{
-			$assetParent->loadByName('com_helloworld.category.' . (int) $this->catid);
+			$assetParent->loadByName('com_miniuniversity.category.' . (int) $this->catid);
 		}
 		else
 		{
-			$assetParent->loadByName('com_helloworld');
+			$assetParent->loadByName('com_miniuniversity');
 		}
 
 		if ($assetParent->id)

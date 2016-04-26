@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+
+	<name>COM_MINIUNIVERSITY</name>
+	<creationDate>February 20125</creationDate>
+	<author>John D3oe</author>
+	<authorEmail>info@trangell.com</authorEmail>
+	<authorUrl>https://www.trangell.com</authorUrl>
+	<copyright>Trangell.com</copyright>
+	<license>License GUN</license>
+	<version>0.0.3</version>
+	<description>با تشکر از اینکه سیستم مدیریت مراکز آموزشی را نصب کردید برای دریافت افزونه های دیگر می توانید به آدرس  https://trangell.com مراجعه کنید</description>
+	<scriptfile>script.php</scriptfile>
+	
+	<updateservers>
+        <server type="extension" priority="1" name="COM_MINIUNIVERSITY">https://trangell.com/ext/updates/component/com_miniuniversity.xml</server>
+    </updateservers>
+	
+	
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>miniuniversity.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	
+<languages folder="site/language">
+		<language tag="en-GB">en-GB.com_miniuniversity.ini</language>
+		<language tag="fa-IR">fa-IR.com_miniuniversity.ini</language>
+        </languages>
+        	
+<media destination="com_miniuniversity" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu link='index.php?option=com_miniuniversity' img="../media/com_miniuniversity/images/tux-16x16.png">COM_MINIUNIVERSITY_MENU</menu>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>config.xml</filename>
+			<filename>miniuniversity.php</filename>
+			<filename>controller.php</filename>
+			<filename>access.xml</filename>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>css</folder>
+			<folder>fonts</folder>
+			<folder>imgaes</folder>
+		</files>
+		<languages folder="admin/language">
+        		<language tag="en-GB">en-GB.com_miniuniversity.ini</language>
+                <language tag="en-GB">en-GB.com_miniuniversity.sys.ini</language>
+        		<language tag="fa-IR">fa-IR.com_miniuniversity.ini</language>
+                <language tag="fa-IR">fa-IR.com_miniuniversity.sys.ini</language>
+		</languages>
+	</administration>
+
+</extension>

@@ -6,8 +6,8 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldControllerBooks extends JControllerAdmin {
-	public function getModel($name = 'book', $prefix = 'HelloWorldModel', $config = array('ignore_request' => true))
+class MiniUniversityControllerBooks extends JControllerAdmin {
+	public function getModel($name = 'book', $prefix = 'MiniUniversityModel', $config = array('ignore_request' => true))
 	{
 		$model = parent::getModel($name, $prefix, $config);
 

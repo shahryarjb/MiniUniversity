@@ -6,10 +6,10 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldModelSemester extends JModelAdmin
+class MiniUniversityModelSemester extends JModelAdmin
 {
 
-	public function getTable($type = 'semester', $prefix = 'HelloWorldTable', $config = array())
+	public function getTable($type = 'semester', $prefix = 'MiniUniversityTable', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -17,7 +17,7 @@ class HelloWorldModelSemester extends JModelAdmin
 	public function getForm($data = array(), $loadData = true)
 	{
 		$form = $this->loadForm(
-			'com_helloworld.semester',
+			'com_miniuniversity.semester',
 			'semester',
 			array(
 				'control' => 'jform',
@@ -35,13 +35,13 @@ class HelloWorldModelSemester extends JModelAdmin
 
 	public function getScript() 
 	{
-		return 'administrator/components/com_helloworld/models/forms/helloworld.js';
+		return 'administrator/components/com_miniunivercity/models/forms/teacher.js';
 	}
 
 	protected function loadFormData()
 	{
 		$data = JFactory::getApplication()->getUserState(
-			'com_helloworld.edit.semester.data',
+			'com_miniuniversity.edit.semester.data',
 			array()
 		);
 
@@ -57,7 +57,7 @@ class HelloWorldModelSemester extends JModelAdmin
 	{
 		if( !empty( $record->id ) )
 		{
-			return JFactory::getUser()->authorise( "core.delete", "com_helloworld.message." . $record->id );
+			return JFactory::getUser()->authorise( "core.delete", "com_miniuniversity.message." . $record->id );
 		}
 	}
 }

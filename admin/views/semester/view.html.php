@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_helloworld
+ * @subpackage  COM_MINIUNIVERSITY
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -11,11 +11,11 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * HelloWorld View
+ * MiniUniversity View
  *
  * @since  0.0.1
  */
-class HelloworldViewSemester extends JViewLegacy
+class MiniUniversityViewSemester extends JViewLegacy
 {
 	protected $form;
 	protected $item;
@@ -37,7 +37,7 @@ class HelloworldViewSemester extends JViewLegacy
 		$this->script = $this->get('Script');
 
 		// What Access Permissions does this user have? What can (s)he do?
-		$this->canDo = HelloWorldHelper::getActions($this->item->id);
+		$this->canDo = MiniUniversityHelper::getActions($this->item->id);
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -73,8 +73,8 @@ class HelloworldViewSemester extends JViewLegacy
 
 		$isNew = ($this->item->id == 0);
 
-		JToolBarHelper::title($isNew ? JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_NEW')
-		                             : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');
+		JToolBarHelper::title($isNew ? JText::_('COM_MINIUNIVERSITY_MANAGER_TEACHER_NEW')
+		                             : JText::_('COM_MINIUNIVERSITY_MANAGER_TEACHER_EDIT'), 'miniuniversity');
 		// Build the actions for new and existing records.
 		if ($isNew)
 		{
@@ -121,11 +121,11 @@ class HelloworldViewSemester extends JViewLegacy
 	{
 		$isNew = ($this->item->id == 0);
 		$document = JFactory::getDocument();
-		$document->setTitle($isNew ? JText::_('COM_HELLOWORLD_HELLOWORLD_CREATING')
-		                           : JText::_('COM_HELLOWORLD_HELLOWORLD_EDITING'));
+		$document->setTitle($isNew ? JText::_('COM_MINIUNIVERSITY_TEACHER_CREATING')
+		                           : JText::_('COM_MINIUNIVERSITY_TEACHER_EDITING'));
 		$document->addScript(JURI::root() . $this->script);
-		$document->addScript(JURI::root() . "/administrator/components/com_helloworld"
-		                                  . "/views/helloworld/submitbutton.js");
-		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
+		$document->addScript(JURI::root() . "/administrator/components/com_miniuniversity"
+		                                  . "/views/teacher/submitbutton.js");
+		JText::script('COM_MINIUNIVERSITY_TEACHER_ERROR_UNACCEPTABLE');
 	}
 }

@@ -29,14 +29,14 @@ abstract class ContentHelperRoute
 	 *
 	 * @since   1.5
 	 */
-	public static function getHelloworldRoute($id, $catid = 0, $language = 0)
+	public static function getMiniuniversityRoute($id, $catid = 0, $language = 0)
 	{
 		$needles = array(
-			'helloworld'  => array((int) $id)
+			'miniuniversity'  => array((int) $id)
 		);
 
 		// Create the link
-		$link = 'index.php?option=com_helloworld&view=helloworld&id=' . $id;
+		$link = 'index.php?option=com_miniuniversity&view=teacher&id=' . $id;
 
 		if ((int) $catid > 1)
 		{

@@ -6,16 +6,16 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldModelBook extends JModelAdmin {
+class MiniUniversityModelBook extends JModelAdmin {
 
-	public function getTable($type = 'book', $prefix = 'HelloWorldTable', $config = array()) {
+	public function getTable($type = 'book', $prefix = 'MiniUniversityTable', $config = array()) {
 		return JTable::getInstance($type, $prefix, $config);
 	}
 
 	public function getForm($data = array(), $loadData = true) {
 
 		$form = $this->loadForm(
-			'com_helloworld.book',
+			'com_miniuniversity.book',
 			'book',
 			array(
 				'control' => 'jform',
@@ -32,13 +32,13 @@ class HelloWorldModelBook extends JModelAdmin {
 	}
 	public function getScript() 
 	{
-		return 'administrator/components/com_helloworld/models/forms/helloworld.js';
+		return 'administrator/components/com_miniunivercity/models/forms/teacher.js';
 	}
 
 	protected function loadFormData()
 	{
 		$data = JFactory::getApplication()->getUserState(
-			'com_helloworld.edit.book.data',
+			'com_miniuniversity.edit.book.data',
 			array()
 		);
 
@@ -54,7 +54,7 @@ class HelloWorldModelBook extends JModelAdmin {
 	{
 		if( !empty( $record->id ) )
 		{
-			return JFactory::getUser()->authorise( "core.delete", "com_helloworld.message." . $record->id );
+			return JFactory::getUser()->authorise( "core.delete", "com_miniuniversity.message." . $record->id );
 		}
 	}
 }

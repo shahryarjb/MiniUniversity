@@ -6,7 +6,7 @@
  */
 
 defined('_JEXEC') or die;
-JHtml::stylesheet(JURI::root().'components/com_helloworld/css/style.css');
+JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');

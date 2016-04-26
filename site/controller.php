@@ -6,7 +6,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldController extends JControllerLegacy
+class MiniUniversityController extends JControllerLegacy
 {
 	public function display($cachable = false, $urlparams = false) {
 		
@@ -33,7 +33,7 @@ class HelloWorldController extends JControllerLegacy
 			$post['searchword'] = $searchword;
 		}
  $post['term'] = $this->input->getString('term');
- return  '<script>alert("aaaaaaaaaaaaaaa");</script>';
+ 
 
 		if ($post['limit'] === null)
 		{
@@ -48,9 +48,9 @@ class HelloWorldController extends JControllerLegacy
 		$menu = $app->getMenu();
 		$item = $menu->getItem($post['Itemid']);
 
-		if ($item->component != 'com_helloworld' || $item->query['view'] != 'search')
+		if ($item->component != 'com_miniuniversity' || $item->query['view'] != 'search')
 		{
-			$item = $menu->getItems('component', 'com_helloworld', true);
+			$item = $menu->getItems('component', 'com_miniuniversity', true);
 
 			if (!empty($item))
 			{
@@ -63,7 +63,7 @@ class HelloWorldController extends JControllerLegacy
 
 		$uri = JUri::getInstance();
 		$uri->setQuery($post);
-		$uri->setVar('option', 'com_helloworld&view=search');
+		$uri->setVar('option', 'com_miniuniversity&view=search');
 
 		$this->setRedirect(JRoute::_('index.php' . $uri->toString(array('query', 'fragment')), false));
 	    }

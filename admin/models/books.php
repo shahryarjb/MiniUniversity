@@ -6,7 +6,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldModelBooks extends JModelList
+class MiniUniversityModelBooks extends JModelList
 {
 
 	public function __construct($config = array())
@@ -27,7 +27,7 @@ class HelloWorldModelBooks extends JModelList
 		$query = $db->getQuery(true);
 
 		$query->select('*')
-			  ->from($db->quoteName('#__scquiz_book'));
+			  ->from($db->quoteName('#__miniuniver_book'));
 
 		$search = $this->getState('filter.search');
 		if (!empty($search))

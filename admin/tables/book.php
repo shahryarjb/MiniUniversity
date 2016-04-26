@@ -6,12 +6,12 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldTableBook extends JTable
+class MiniUniversityTableBook extends JTable
 {
 
 	function __construct(&$db)
 	{
-		parent::__construct('#__scquiz_book', 'id', $db);
+		parent::__construct('#__miniuniver_book', 'id', $db);
 	}
 
 	public function bind($array, $ignore = '')
@@ -54,7 +54,7 @@ class HelloWorldTableBook extends JTable
 	protected function _getAssetName()
 	{
 		$k = $this->_tbl_key;
-		return 'com_helloworld.message.'.(int) $this->$k;
+		return 'com_miniuniversity.message.'.(int) $this->$k;
 	}
 
 	protected function _getAssetTitle()
@@ -69,11 +69,11 @@ class HelloWorldTableBook extends JTable
 
 		if (($this->catid)&& !empty($this->catid))
 		{
-			$assetParent->loadByName('com_helloworld.category.' . (int) $this->catid);
+			$assetParent->loadByName('com_miniuniversity.category.' . (int) $this->catid);
 		}
 		else
 		{
-			$assetParent->loadByName('com_helloworld');
+			$assetParent->loadByName('com_miniuniversity');
 		}
 
 		if ($assetParent->id)

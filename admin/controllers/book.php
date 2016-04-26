@@ -6,7 +6,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldControllerBook extends JControllerForm
+class MiniUniversityControllerBook extends JControllerForm
 {
 
 	protected function allowAdd($data = array()) {
@@ -17,7 +17,7 @@ class HelloWorldControllerBook extends JControllerForm
 		$id = isset( $data[ $key ] ) ? $data[ $key ] : 0;
 		if( !empty( $id ) )
 		{
-			return JFactory::getUser()->authorise( "core.edit", "com_helloworld.message." . $id );
+			return JFactory::getUser()->authorise( "core.edit", "com_miniuniversity.message." . $id );
 		}
 	}
 }

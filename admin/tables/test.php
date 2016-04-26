@@ -6,7 +6,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class HelloWorldTableTest extends JTable
+class MiniUniversityTableTest extends JTable
 {
 
 	public function bind($array, $ignore = '')
@@ -46,7 +46,7 @@ class HelloWorldTableTest extends JTable
 	protected function _getAssetName()
 	{
 		$k = $this->_tbl_key;
-		return 'com_helloworld.message.'.(int) $this->$k;
+		return 'com_miniuniversity.message.'.(int) $this->$k;
 	}
 
 	protected function _getAssetTitle()
@@ -61,11 +61,11 @@ class HelloWorldTableTest extends JTable
 
 		if (($this->catid)&& !empty($this->catid))
 		{
-			$assetParent->loadByName('com_helloworld.category.' . (int) $this->catid);
+			$assetParent->loadByName('com_miniuniversity.category.' . (int) $this->catid);
 		}
 		else
 		{
-			$assetParent->loadByName('com_helloworld');
+			$assetParent->loadByName('com_miniuniversity');
 		}
 
 		if ($assetParent->id)

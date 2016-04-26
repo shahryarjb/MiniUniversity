@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_helloworld
+ * @subpackage  com_miniuniversity
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -11,11 +11,11 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * HelloWorlds View
+ * Teachers View
  *
  * @since  0.0.1
  */
-class HelloWorldViewBooks extends JViewLegacy
+class MiniUniversityViewBooks extends JViewLegacy
 {
 	/**
 	 * Display the Hello World view
@@ -29,7 +29,7 @@ class HelloWorldViewBooks extends JViewLegacy
 		
 		// Get application
 		$app = JFactory::getApplication();
-		$context = "helloworld.list.admin.book";
+		$context = "miniuniversity.list.admin.book";
 		// Get data from the model
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
@@ -40,7 +40,7 @@ class HelloWorldViewBooks extends JViewLegacy
 		$this->activeFilters 	= $this->get('ActiveFilters');
 
 		// What Access Permissions does this user have? What can (s)he do?
-		$this->canDo = HelloWorldHelper::getActions();
+		$this->canDo = MiniUniversityHelper::getActions();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -51,7 +51,7 @@ class HelloWorldViewBooks extends JViewLegacy
 		}
 
 		// Set the submenu
-		HelloWorldHelper::addSubmenu('books');
+		MiniUniversityHelper::addSubmenu('books');
 
 		// Set the toolbar and number of found items
 		$this->addToolBar();
@@ -72,7 +72,7 @@ class HelloWorldViewBooks extends JViewLegacy
 	 */
 	protected function addToolBar()
 	{
-		$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS');
+		$title = JText::_('COM_MINIUNIVERSITY_MANAGER_BOOK');
 
 		if ($this->pagination->total)
 		{
@@ -96,7 +96,7 @@ class HelloWorldViewBooks extends JViewLegacy
 		if ($this->canDo->get('core.admin')) 
 		{
 			JToolBarHelper::divider();
-			JToolBarHelper::preferences('com_helloworld');
+			JToolBarHelper::preferences('com_miniuniversity');
 		}
 	}
 	/**
@@ -107,6 +107,6 @@ class HelloWorldViewBooks extends JViewLegacy
 	protected function setDocument() 
 	{
 		$document = JFactory::getDocument();
-		$document->setTitle(JText::_('booooooooooooooooks'));
+		$document->setTitle(JText::_('COM_MINIUNIVERSITY_BOOKS_TITLE'));
 	}
 }
