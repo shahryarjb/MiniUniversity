@@ -37,7 +37,7 @@ class MiniUniversityModelTeachers extends JModelList
 		if (!empty($search))
 		{
 			$like = $db->quote('%' . $search . '%');
-			$query->where('name LIKE ' . $like);
+			$query->where('co.name LIKE ' . $like);
 		}
 
 		$published = $this->getState('filter.published');
