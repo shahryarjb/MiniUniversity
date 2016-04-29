@@ -25,7 +25,7 @@ class MiniUniversityModelSearch extends JModelLegacy
 	
 	}
 public function setData($keyword,$term,$book) {
-	if (!preg_match('/[]\'^£$%&*0-90()}.{@#~?!><>[,|=_+-]/', $keyword) AND mb_strlen($keyword, 'UTF-8') > 1) {
+	if (!preg_match('/[]\'^£$%&*0-90;()}.{@#~?!><>[,|=_+-]/', $keyword) AND mb_strlen($keyword, 'UTF-8') > 1) {
 			$this->setState('searchword', $keyword);
 	}else{
 			if (!empty($keyword)) {
