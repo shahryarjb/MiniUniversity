@@ -13,6 +13,7 @@ JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+$session = JFactory::getSession();
 ?>
 
 <!-- forme searchs -->
@@ -46,3 +47,14 @@ JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-a
 	}else {
 		echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i>".JText::_('COM_MINIUNIVERSITY_SEARCH_NOT_FOUND' )."</p>";
 	} ?>
+
+
+  <?php 
+  if (($session->get('searchbadch') != null)) {
+    echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i>".JText::_('لطفا از کاراکتر های مجاز استفاده کنید !!' )."</p>";
+  }
+
+  if ($session->isActive('searchbadch')) {
+    $session->clear('searchbadch');
+  }
+  ?>

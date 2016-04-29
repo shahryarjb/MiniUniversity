@@ -9,30 +9,34 @@ defined('_JEXEC') or die;
 
 class MiniUniversityModelSearch extends JModelLegacy
 {
-
-
-	//================================
 	protected $_data2 = null;
 
-	public function __construct()
-	{
+	public function __construct(){
 		parent::__construct();
 
 		$app    = JFactory::getApplication();
 		$config = JFactory::getConfig();
-
-		$params = $app->getParams();	
-        		$keyword  = urldecode($app->input->getString('searchword'));
-		//$term=$app->input->get('term', 0 ,'INT');
-        		$term=$app->input->getInt('term');
+		
+		$params = $app->getParams();
+		$keyword  = htmlspecialchars($app->input->getString('searchword'));
+        $term=$app->input->getInt('term');
 		$book=$app->input->getInt('book');
 		$this->setData($keyword,$term,$book);
-		
+	
 	}
 public function setData($keyword,$term,$book) {
-	$this->setState('searchword', $keyword);
-	$this->setState('term', $term);
-	$this->setState('book', $book);
+	if (!preg_match('/[]\'^£$%&*0-90()}.{@#~?!><>[,|=_+-]/', $keyword) AND mb_strlen($keyword, 'UTF-8') > 1) {
+			$this->setState('searchword', $keyword);
+	}else{
+			if (!empty($keyword)) {
+				$session = JFactory::getSession();
+				$session->set('searchbadch', " ");
+				$keyword = null;
+			}
+
+	}
+			$this->setState('term', $term);
+			$this->setState('book', $book);
 }
 
 	public function getData() {   
@@ -43,16 +47,14 @@ public function setData($keyword,$term,$book) {
 
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
-		
 	if (($keyword != '') or ($term != '')  or ( $book != '') )
 	{
 			$query->select('t.*,CASE WHEN CHAR_LENGTH(t.name) THEN CONCAT_WS(":", t.id, t.name) ELSE t.name END as slug');
 			$query->from('#__miniuniver_teacher AS t');
-			
-			if ($keyword != '')
-			{
-			  $like = $db->quote('%' . $keyword . '%');
-			  $query->where('t.name LIKE' . $like);
+
+			if ($keyword != '' or $keyword != null){	
+			 $like = ('%' . $db->escape( $keyword, true ) . '%' );
+			 $query->where('t.name LIKE' . $db->quote( $like, false));
 			}
 			
 			if (!empty($term))
@@ -70,10 +72,9 @@ public function setData($keyword,$term,$book) {
 			$rows = $db->loadObjectList();
 			
 			return	$rows;	
-	}	
+	}
+	
 }
-
-
 
 	public static function term() {
 		$db = JFactory::getDbo();
