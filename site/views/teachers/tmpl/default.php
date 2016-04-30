@@ -16,7 +16,6 @@ JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-a
 ?>
 <p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_WELCOME');?> </p>
 
-
 <!-- forme searchs -->
 
     <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-horizontal">
@@ -90,13 +89,11 @@ foreach($this->items as $i => $item) { ?>
                                                 <div class="clearfix"></div>
                                                 <div class="col-sm-12 rtlpad">
                                                     <div class="col-md-1 img-circle int"><?php 
-                                                    if ($item->cat_id != 0)
-                                                    {
-                                                    $book_count =(explode(',', $item->cat_id)); 
-                                                    echo count($book_count);?></div>  
+                                                    if ((int)$item->cat_id != 0 AND htmlspecialchars((int)$item->term_id) > 0){
+                                                        $book_count =(explode(',', $item->cat_id)); 
+                                                        echo count($book_count);?></div>  
 											<?php	}
-													else
-													{
+													else{
 														echo '<i class="fa fa-ban"></i>';?></div>
 											<?php	}
 											?>
@@ -118,4 +115,3 @@ foreach($this->items as $i => $item) { ?>
 ?>
 
     </div>
-      

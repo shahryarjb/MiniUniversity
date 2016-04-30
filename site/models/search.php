@@ -35,8 +35,19 @@ public function setData($keyword,$term,$book) {
 			}
 
 	}
+
+	if (preg_match('/^[0-9]+$/',$term) or preg_match('/^[0-9]+$/',$book)){
+		// if (ctype_digit($term) or ctype_digit($book)){
 			$this->setState('term', $term);
 			$this->setState('book', $book);
+	}else {
+				if (!empty($term) or !empty($book)) {
+						$session = JFactory::getSession();
+						$session->set('searchbadch', " ");
+						$term = null;
+						$book = null;
+			}
+	}
 }
 
 	public function getData() {   
@@ -57,13 +68,13 @@ public function setData($keyword,$term,$book) {
 			 $query->where('t.name LIKE' . $db->quote( $like, false));
 			}
 			
-			if (!empty($term))
+			if (!empty($term) or $term != null)
 			{
 			  $scrut = $db->escape(intval($term));
 			  $query->where('t.term_id = ' . $scrut);
 			}
 			
-			if (!empty($book))
+			if (!empty($book) or $book != null)
 			{
 			$scrub = $db->escape(intval($book));
 			  $query->where('FIND_IN_SET('.$scrub.',t.cat_id)');	
