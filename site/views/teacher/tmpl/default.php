@@ -22,7 +22,7 @@ require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
 		$time_stamp = $this->getModel('teacher'); 
 ?>
 <?php
-  if (empty($this->items->tichid)) { 
+  if (empty($this->items->tichid) or $this->items->published == 0) { 
 	  
 	  ?>
   <p class="bg-danger pads"><i class="fa fa-bolt" aria-hidden="true"></i> <?php echo JText::_("COM_MINIUNIVERSITY_TEACHER_NOT_FOUND_OR_NOT_EXSIT"); ?> </p>

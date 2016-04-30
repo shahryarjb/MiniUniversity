@@ -18,6 +18,8 @@ class MiniUniversityModelTeachers extends JModelList
 				  ->from('#__miniuniver_teacher as co ')
 				  ->leftJoin('#__miniuniver_book as c ON co.cat_id=c.id')
 				  ->leftJoin('#__miniuniver_semester as d ON co.term_id=d.id');
+			$query->where('published = 1');
+
 		}
 
 		return $query;
