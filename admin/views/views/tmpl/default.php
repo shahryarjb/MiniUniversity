@@ -49,7 +49,7 @@ $model      = $this->getModel();
 				</a>
 				</div>
 				<div class="span6 yu pad">
-				<a href="index.php?option=com_miniuniversity&view=semesters">
+				<a href="index.php?option=com_config&view=component&component=com_miniuniversity">
 					<i class="fa fa-cogs"></i>
 					<?php echo JText::_('COM_MINIUNIVERSITY_CONFIG');?>
 				 </a>

@@ -11,29 +11,29 @@ class com_miniUniversityInstallerScript
 
 	function install($parent) 
 	{
-		$parent->getParent()->setRedirectURL('index.php?option=com_miniuniversity');
+		echo '<p>' . JText::_('COM_MINIUNIVERSITY_INSTALL'). $parent->get('manifest')->version  . '</p>';
 	}
  
 
 	function uninstall($parent) 
 	{
-		echo '<p>' . JText::_('COM_MINIUNIVERSITY_UNINSTALL_TEXT') . '</p>';
+		echo '<p>' . JText::_('COM_MINIUNIVERSITY_UNINSTALL') . '</p>';
 	}
  
 	function update($parent) 
 	{
-		echo '<p>' . JText::sprintf('COM_MINIUNIVERSITY_UPDATE_TEXT', $parent->get('manifest')->version) . '</p>';
+		echo '<p>' . JText::_('COM_MINIUNIVERSITY_UPDATE') . ' ==> '. $parent->get('manifest')->version . '</p>';
 	}
  
 	function preflight($type, $parent) 
 	{
 
-		echo '<p>' . JText::_('COM_MINIUNIVERSITY_PREFLIGHT_' . $type . '_TEXT') . '</p>';
+		
 	}
 
 	function postflight($type, $parent) 
 	{
 
-		echo '<p>' . JText::_('COM_MINIUNIVERSITY_POSTFLIGHT_' . $type . '_TEXT') . '</p>';
+		
 	}
 }

@@ -35,13 +35,13 @@ class MiniUniversityModelTeacher extends JModelItem
 		
 		return $data;
 	}
-	//======================================
+
 	public function getBook()
 	{
 		$a =MiniUniversityModelTeacher::getItem();
 		if (!empty($a))
 		{
-			$cat_id =(explode(',', $a->cat_id));  // convert cat_id to array
+			$cat_id =(explode(',', $a->cat_id));
 			
 			$db    = JFactory::getDbo();
 			$query = $db->getQuery(true);
@@ -61,15 +61,15 @@ class MiniUniversityModelTeacher extends JModelItem
 		}
 		return $data;
 	}
-	//====================================convert data to unix time-stamp
+
 	public function convert_date_to_unix($date_time) {
     		// Get the User and their timezone
-		    $user = JFactory::getUser();
-		    $timeZone = $user->getParam('timezone', 'UTC');
+		    	$user = JFactory::getUser();
+		    	$timeZone = $user->getParam('timezone', 'UTC');
 
 	    	// Create JDate object set to now in the users timezone.
 	    	    $myDate = JDate::getInstance($date_time, $timeZone);
 
-	    return $myDate->toUnix();
+	    		return $myDate->toUnix();
 	}
 }

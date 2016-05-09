@@ -5,17 +5,59 @@
 		label="COM_MINIUNIVERSITY_CONFIG_GREETING_SETTINGS_LABEL"
 		description="COM_MINIUNIVERSITY_CONFIG_GREETING_SETTINGS_DESC"
 	>
+
 		<field
-			name="show_category"
+			name="date_type"
 			type="radio"
-			label="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_SHOW_CATEGORY_LABEL"
-			description="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_SHOW_CATEGORY_DESC"
+			label="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_DATE_TYPE"
 			default="0"
 		>
-			<option value="0">JHIDE</option>
-			<option value="1">JSHOW</option>
+			<option value="0">COM_MINIUNIVERSITY_MINIUNIVERSITY_DATE_TYPE_SHAMSI</option>
+			<option value="1">COM_MINIUNIVERSITY_MINIUNIVERSITY_DATE_TYPE_MILADI</option>
 		</field>
+
 	</fieldset>
+	<!-- themes -->
+	<fieldset
+		name="themes"
+		label="COM_MINIUNIVERSITY_CONFIG_GREETING_SETTINGS_THEMES"
+		description="COM_MINIUNIVERSITY_CONFIG_GREETING_SETTINGS_DESC_THEMES"
+	>
+
+		<field
+			name="bootstrap"
+			type="radio"
+			label="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_BOOTSTRAP"
+			default="0"
+		>
+			<option value="0">COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_BOOTSTRAP_IN</option>
+			<option value="1">COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_BOOTSTRAP_OUT</option>
+		</field>
+
+		<field
+			name="count_resv_libs"
+			type="radio"
+			label="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_RESV"
+			default="1"
+		>
+			<option value="0">COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_RESV_IN</option>
+			<option value="1">COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_RESV_OUT</option>
+		</field>
+
+		<field
+			name="star_teachers"
+			type="radio"
+			label="COM_MINIUNIVERSITY_MINIUNIVERSITY_FIELD_STAR_TEACHERS"
+			default="1"
+		>
+			<option value="0">COM_MINIUNIVERSITY_MINIUNIVERSITY_STAR_TEACHERS_IN</option>
+			<option value="1">COM_MINIUNIVERSITY_MINIUNIVERSITY_STAR_TEACHERS_OUT</option>
+		</field>
+
+
+	</fieldset>
+	<!-- themes -->
+
 	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"

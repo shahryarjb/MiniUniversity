@@ -9,10 +9,17 @@ $upper_limit     = $lang->getUpperLimitSearchWord();
 $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('نام استاد را وارد کنید'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
-JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
-JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+  if ($this->params['bootstrap'] == 1) {
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+        JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+        JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+        JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+    }else {
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+        JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+    }
 $session = JFactory::getSession();
 ?>
 

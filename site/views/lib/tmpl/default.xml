@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_MINIUNIVERSITY_SHOW_ONE_LIBSID">
+	</layout>
+
+	<state>
+		<name>COM_MINIUNIVERSITY_SHOW_ONE_LIB</name>
+		<description><![CDATA[تنظیمات و انتخابا ها]]></description>
+		<fields name="request">
+			<fieldset name="request">
+				<field name="id" type="usercategory" size="3" default="0" label="COM_MINIUNIVERSITY_SELECT_BOOK" description="" />
+			</fieldset>
+		</fields>
+	</state>
+</metadata>

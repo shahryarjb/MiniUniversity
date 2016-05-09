@@ -5,10 +5,17 @@
  * @subpackage  com_MiniUniversity
  */
 defined('_JEXEC') or die('Restricted access');
-JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
-JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+    if ($this->params['bootstrap'] == 1) {
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+        JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+        JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+        JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+    }else {
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+        JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+        JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+    }
 require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
 
 	if (!empty($this->items->nametich)) {
@@ -82,7 +89,7 @@ require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
 			  	</div>
 			  	<div class="clearfix"></div>
 			  	<div class="back">
-				  	<div class="span2 tell fonts"><i class="fa fa-calculator" aria-hidden="true"></i> <?php echo JText::_("COM_MINIUNIVERSITY_TEACHER_LICENSE"); ?>
+				  	<div class="span2 tell fonts"> <?php echo JText::_("COM_MINIUNIVERSITY_TEACHER_LICENSE"); ?>
 				  	<div class="clearfix"></div>
 				  	</div>
 				  	<div class="span4 md"><?php echo htmlspecialchars($this->items->tichlicens); ?></div>
@@ -121,7 +128,15 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 									<?php echo htmlspecialchars($mian_term->name);?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo jdate("o:m:j",$time_stamp->convert_date_to_unix($mian_term->qextime)); ?></div>
+									<div class="span2 shtichnum green">
+									<?php
+									if ($this->params['date_type'] == 0) {
+										echo jdate("o:m:j",$time_stamp->convert_date_to_unix($mian_term->qextime));
+									}else {
+										echo htmlspecialchars($mian_term->qextime);
+									}
+									?>
+									</div>
 									<div class="clearfix"></div>
 								</div>
 								</br>
@@ -150,7 +165,14 @@ if ((htmlspecialchars((int)$this->items->term_id) > 0) && ($this->items->cat_id 
 									<div class="span4 shtich fonts op"> <?php echo htmlspecialchars($payan_term->name); ?>
 									<div class="clearfix"></div>
 									</div>
-									<div class="span2 shtichnum green"> <?php echo jdate("o:m:j",$time_stamp->convert_date_to_unix($payan_term->endextime)); ?></div>
+									<div class="span2 shtichnum green">
+										<?php
+									if ($this->params['date_type'] == 0) {
+					echo jdate("o:m:j",$time_stamp->convert_date_to_unix($payan_term->endextime));
+									}else {
+										echo htmlspecialchars($payan_term->endextime);
+									}?>
+									</div>
 									<div class="clearfix"></div>
 								</div>
 								</br>

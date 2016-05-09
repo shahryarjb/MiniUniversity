@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form 				
+	addrulepath="/administrator/components/com_miniuniversity/models/rules"
+>
+	<fieldset
+	 name="details"
+	 label="COM_MINIUNIVERSITY_LIB_DETAILS" >
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="name"
+				type="text"
+				label="COM_MINIUNIVERSITY_LIB_NAME_LABEL"
+				description=""
+				size="30"
+				required="true"
+				default=""
+				validate=""
+				message="COM_MINIUNIVERSITY_EMAIL_UNVALID"
+				/>
+
+		<field
+				name="author"
+				type="text"
+				label="COM_MINIUNIVERSITY_LIB_AUTHOR_LABEL"
+				description=""
+				size="30"
+				required="true"
+				default=""
+				validate=""
+				message="COM_MINIUNIVERSITY_AUTHOR_UNVALID"
+				/>
+				
+		<field
+				name="translator"
+				type="text"
+				label="COM_MINIUNIVERSITY_LIB_TRANSLATOR_LABEL"
+				description=""
+				size="30"
+				default=""
+				validate=""
+				message="COM_MINIUNIVERSITY_TRANSLATOR_UNVALID"
+				/>				
+
+		<field
+				name="isbn"
+				type="text"
+				label="COM_MINIUNIVERSITY_LIB_ISBN_LABEL"
+				description=""
+				size="30"
+				default=""
+				/>
+
+		<field
+			name="bookpic"
+			type="media"
+			label="COM_MINIUNIVERSITY_UPLOAD_LIB_IMAGE_LABEL"
+			description=""
+				 />
+
+		<field
+				name="dis"
+				type="editor"
+				label="COM_MINIUNIVERSITY_LIB_DIS_DESC"
+				class="JComponentHelper::filterText"
+				filter="safehtml"
+				
+				/>
+		<field
+				name="published"
+				type="radio"
+				label="COM_MINIUNIVERSITY_LIB_PUBLISHED_LABEL"
+				description=""
+				size="30"
+				default=""
+				>
+				<option value="1">
+                COM_MINIUNIVERSITY_LIB_PUBLISHED_LABEL</option>
+                <option value="0">
+                COM_MINIUNIVERSITY_LIB_NOTPUBLISHED_LABEL</option>
+		</field>
+		
+		<field 
+			    name="cat_id"
+			    type="sql"
+			    query="SELECT id AS value, name AS cat_id FROM #__miniuniver_libcat"
+			    class="inputbox" 
+			    default="" 
+			    label="COM_MINIUNIVERSITY_LIB_CATID_LABEL" 
+			    description="" 
+			    required="true" >
+			    <option value="0">COM_MINIUNIVERSITY_LIB_CATID_LABEL</option>
+  
+    		</field>		
+				
+	</fieldset>
+	
+</form>

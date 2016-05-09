@@ -89,6 +89,11 @@ div.container-fluid.sbord {
   background: #38C8ED;
   color:#fff
 }
+.col-sm-12.pad-shema-lib {
+  padding: 5px;
+  background: #73D3BB;
+  color:#fff
+}
 .fa.fa-info-circle {
     float: left;
     font-size: 30px;
@@ -280,7 +285,7 @@ span.fonts.size {
       border-top:1px solid rgb(216, 216, 216);;
 }
 .span2.shtich.fonts {
-          padding: 10px 10px 7px 8px;
+          padding: 11px 10px 7px 8px;
           font-size: 18px;
 }
 .span4.shtichnum {
@@ -333,9 +338,11 @@ div.fonts.dis {
 }
 .span2.shtichnum.green {
   background-color: #ACD373;
+  font-family: IRANSans;
   float: left;
-    padding: 15px 10px 15px 10px;
-    text-align: center;
+  padding: 15px 10px 15px 10px;
+  text-align: center;
+  font-size: 18px;
 }
 .span4.shtich.fonts.op {
   float: right;
@@ -526,4 +533,139 @@ button.toltip {
   background: transparent;
   border: 0;
   float: left;
+}
+.fa.fa-calculator {
+  float: left;
+  background: #fff;
+  padding: 4px;
+  color: #73D3BB;
+  border-radius: 10px;
+  margin-top:4px;
+  font-size: 18px;
+}
+
+.col-md-6.isbs {
+  background: #F5F5F5;
+  padding: 4px 2px 4px 2px;
+  text-align: center;
+  border-radius: 15px;
+  font-family: IRANSans;
+}
+.col-md-6.isbntext {
+  color: #8A8A8A;
+  font-family: IRANSans;
+  font-size: 16px;
+}
+
+/*.span12.libssorce {
+  border:1px solid #ccc;
+}*/
+.container-fluid.fix.lib {
+  border: 1px solid #D8D8D8;
+  border-radius: 3px;
+}
+.span3.libssorce {
+  border-left: 1px solid #D8D8D8;
+  padding: 10px 0 10px 0;
+          min-height: 339px;
+}
+.span5.libssorce {
+  border-left: 1px solid #D8D8D8;
+  padding: 10px 0 0 0;
+}
+span.textlibtranslator {
+  color: #666;
+  font-family: IRANSans;
+  font-size: 16px;
+  text-align: center;
+  padding-right:20px;
+  float:right;
+  margin-bottom: 10px;
+}
+span.textlib {
+  color: #666666;
+    font-family: IRANSans;
+    font-size: 27px;
+    text-align: center;
+    padding-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    float: right;
+}
+.span5.publish {
+  /*border-bottom: 1px solid #D8D8D8;*/
+  border-top: 1px solid #D8D8D8;
+  padding: 10px 0 10px 0;
+  width: 100% !important;
+}
+.span5.publish.notops{
+   padding: 10px 0 10px 0;
+
+  border:0;
+}
+.span5.publish.notop {
+  border-bottom: 1px solid #D8D8D8;
+    padding: 10px 0 10px 0;
+
+}
+.span5.publish.notope {
+  border-bottom: 0px solid #D8D8D8;
+    padding: 10px 0 10px 0;
+
+}
+.span3.publish.right {
+  float: right;
+    font-size: 16px;
+    font-family: IRANSans;
+    color: #666666;
+    line-height: 40px;
+    padding-right: 15px;
+}
+.span2.publish.left {
+   float: left;
+  font-size: 30px;
+  text-align: center;
+  padding-left: 10px;
+}
+.span2.publish.lefts {
+   float: left;
+  font-size: 16px;
+  text-align: center;
+  padding-left: 10px;
+  font-family: IRANSans;
+  color: #696868;
+}
+span.dislibs{
+  padding: 5px;
+  font-family: IRANSans;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 30px;
+}
+.span4.libssorces {
+  padding-right: 15px;
+  font-family: IRANSans;
+}
+.backlibs .span2.shtich.fonts {
+    font-family: IRANSans;
+    font-size: 16px;
+    float: right;
+}
+.backlibs .span2.shtichnum {
+    font-family: IRANSans;
+    font-size: 16px;
+    float: left;
+    margin-top:10px
+}
+
+.backlibs {
+  margin-top: 15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+.backlibs .span2.shtich.fonts .fa.fa-user {
+  color:#73D3BB;
+}
+.backlibs .span2.shtichnum .fa.fa-calendar{
+  color:#ACD373;
 }

@@ -35,6 +35,26 @@ abstract class MiniUniversityHelper {
 			'index.php?option=com_miniuniversity&view=semesters',
 			$submenu == ' semester'
 		);
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_LIB"),
+			'index.php?option=com_miniuniversity&view=libs',
+			$submenu == ' lib'
+		);
+		
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_LIBRES"),
+			'index.php?option=com_miniuniversity&view=libresvs',
+			$submenu == ' libresv'
+		);
+		
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_LIBCAT"),
+			'index.php?option=com_miniuniversity&view=libcats',
+			$submenu == ' libcat'
+		);
 
 
 		$document = JFactory::getDocument();

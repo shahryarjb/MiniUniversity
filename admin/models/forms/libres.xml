@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form 				
+	addrulepath="/administrator/components/com_miniuniversity/models/rules"
+>
+	<fieldset
+	 name="details"
+	 label="COM_MINIUNIVERSITY_LIBRES_DETAILS" >
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="last_transferee"
+				type="int"
+				label="COM_MINIUNIVERSITY_LIB_LAST_TRANSFEREE_LABEL"
+				description=""
+				size="30"
+				required=""
+				default=""
+				validate=""
+				message=""
+				/>
+
+		<field
+				name="return_date"
+				type="calendar"
+				label="COM_MINIUNIVERSITY_RETURN_DATE_LABEL"
+				description=""
+				size="30"
+				default=""
+				format="%Y-%m-%d %H:%M:%S"
+				filter="user_utc"
+				/>
+
+		
+		<field 
+			    name="lib_id"
+			    type="sql"
+			    query="SELECT id AS value, name AS lib_id FROM #__miniuniver_lib"
+			    class="inputbox" 
+			    default="" 
+			    label="COM_MINIUNIVERSITY_LIB_LIBID_LABEL" 
+			    description="" 
+			    required="" >
+			    <option value="0">COM_MINIUNIVERSITY_LIB_LIBID_LABEL</option>
+  
+    		</field>		
+				
+	</fieldset>
+	
+</form>

@@ -3,13 +3,13 @@
 
 	<name>COM_MINIUNIVERSITY</name>
 	<creationDate>February 20125</creationDate>
-	<author>John D3oe</author>
+	<author>Trangell co</author>
 	<authorEmail>info@trangell.com</authorEmail>
 	<authorUrl>https://www.trangell.com</authorUrl>
 	<copyright>Trangell.com</copyright>
 	<license>License GUN</license>
-	<version>0.0.3</version>
-	<description>با تشکر از اینکه سیستم مدیریت مراکز آموزشی را نصب کردید برای دریافت افزونه های دیگر می توانید به آدرس  https://trangell.com مراجعه کنید</description>
+	<version>0.0.4</version>
+	<description>COM_MINIUNIVERSITY_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 	
 	<updateservers>
@@ -22,12 +22,19 @@
 			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
 		</sql>
 	</install>
+		
 	<uninstall> <!-- Runs on uninstall -->
 		<sql>
 			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
 		</sql>
 	</uninstall>
 	
+<update> 
+		<schemas> 
+			<schemapath type="mysql">sql/updates/sql</schemapath> 
+		</schemas> 
+	</update>
+
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>miniuniversity.php</filename>

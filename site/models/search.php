@@ -51,38 +51,36 @@ public function setData($keyword,$term,$book) {
 }
 
 	public function getData() {   
-	$keyword = $this->getState('searchword');
-	$term = $this->getState('term');
+		$keyword = $this->getState('searchword');
+		$term = $this->getState('term');
     	$book = $this->getState('book');
     
 
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
-	if (($keyword != '') or ($term != '')  or ( $book != '') )
-	{
+		
+	if (($keyword != '') or ($term != '')  or ( $book != '') ) {
 			$query->select('t.*,CASE WHEN CHAR_LENGTH(t.name) THEN CONCAT_WS(":", t.id, t.name) ELSE t.name END as slug');
 			$query->from('#__miniuniver_teacher AS t');
 
-			if ($keyword != '' or $keyword != null){	
+			if ($keyword != '' or $keyword != null) {	
 			 $like = ('%' . $db->escape( $keyword, true ) . '%' );
 			 $query->where('t.name LIKE' . $db->quote( $like, false));
 			}
 			
-			if (!empty($term) or $term != null)
-			{
+			if (!empty($term) or $term != null) {
 			  $scrut = $db->escape(intval($term));
 			  $query->where('t.term_id = ' . $scrut);
 			}
 			
-			if (!empty($book) or $book != null)
-			{
-			$scrub = $db->escape(intval($book));
-			  $query->where('FIND_IN_SET('.$scrub.',t.cat_id)');	
+			if (!empty($book) or $book != null) {
+				$scrub = $db->escape(intval($book));
+			  	$query->where('FIND_IN_SET('.$scrub.',t.cat_id)');	
 			}
-			$db->setQuery($query);
-			$rows = $db->loadObjectList();
+				$db->setQuery($query);
+				$rows = $db->loadObjectList();
 			
-			return	$rows;	
+				return	$rows;	
 	}
 	
 }
