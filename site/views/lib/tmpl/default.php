@@ -5,7 +5,8 @@
  * @subpackage  com_MiniUniversity
  */
 defined('_JEXEC') or die('Restricted access');
-  if ($this->params['bootstrap'] == 1) {
+if (isset($this->params['bootstrap'])) {
+    if ($this->params['bootstrap'] == 1) {
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
         JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
         JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
@@ -16,6 +17,12 @@ defined('_JEXEC') or die('Restricted access');
         JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
     }
+  }else {
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+      JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+  }
 require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
 ?>
 

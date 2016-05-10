@@ -10,6 +10,7 @@ $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('COM_MINIUNIVERSITY_ENTER_TEACHER_NAME'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
 
+if (isset($this->params['bootstrap'])) {
     if ($this->params['bootstrap'] == 1) {
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
         JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
@@ -21,7 +22,14 @@ $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
         JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
     }
+  }else {
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+      JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+  }
 ?>
+<?php //echo JRoute::_('index.php?option=com_miniuniversity&view=search'); ?>
 <p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_WELCOME');?> </p>
 
 <!-- forme searchs -->
@@ -44,6 +52,7 @@ $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
                       <?php } ?>
                   </select>
           <div class="clearfix"></div>
+          <!-- <?php echo JHtml::_( 'form.token' ); ?> -->
           <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="btn btn-primary btn-lg right" />
       </div>
           </form>
@@ -72,9 +81,11 @@ foreach($this->items as $i => $item) { ?>
 
                  <div class="col-sm-12 pad-shema">
                      <?php 
-                      if ($this->params['star_teachers'] == 1) {
+                     if (isset($this->params['star_teachers'])) {
+                         if ($this->params['star_teachers'] == 1) {
                            echo '<i class="fa fa-star">22  </i>';
                       }
+                     }
                            ?>
                            <button class="toltip" data-balloon-length="medium" data-balloon="<?php echo substr($item->dis,0, 230); ?>" data-balloon-pos="up"><i class="fa fa-info-circle"></i></button>
                            <div class="clearfix"></div>  

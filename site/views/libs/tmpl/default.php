@@ -9,7 +9,8 @@ $upper_limit     = $lang->getUpperLimitSearchWord();
 $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('COM_MINIUNIVERSITY_ENTER_TEACHER_NAME'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
-  if ($this->params['bootstrap'] == 1) {
+ if (isset($this->params['bootstrap'])) {
+    if ($this->params['bootstrap'] == 1) {
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
         JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
         JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
@@ -20,6 +21,12 @@ $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
         JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
     }
+  }else {
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+      JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+  }
 $app 	= JFactory::getApplication();
 $model 	= $this->getModel('libs');
 ?>
@@ -53,6 +60,7 @@ foreach($this->items as $i => $item) { ?>
 
                  <div class="col-sm-12 pad-shema-lib">
                      <?php 
+                     if (isset($this->params['count_resv_libs'])) {                     
                      if ($this->params['count_resv_libs'] == 1) { ?>
                      <i class="fa fa-calculator" aria-hidden="true">
                          <?php 
@@ -60,7 +68,7 @@ foreach($this->items as $i => $item) { ?>
 							echo count($BookResCont); 
 						 ?>
                      </i>
-                     <?php } ?>
+                     <?php } }?>
                            <button class="toltip" data-balloon-length="medium" data-balloon="<?php echo substr(htmlspecialchars($item->dis),0, 230); ?>" data-balloon-pos="up"><i class="fa fa-info-circle"></i></button>
                            <div class="clearfix"></div>  
                  </div>

@@ -9,7 +9,8 @@ $upper_limit     = $lang->getUpperLimitSearchWord();
 $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('نام استاد را وارد کنید'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
-  if ($this->params['bootstrap'] == 1) {
+  if (isset($this->params['bootstrap'])) {
+    if ($this->params['bootstrap'] == 1) {
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
         JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
         JHtml::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
@@ -20,7 +21,14 @@ $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
         JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
     }
+  }else {
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/bootstrap.min.css');
+      JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
+      JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
+  }
 $session = JFactory::getSession();
+// JSession::checkToken( 'post' ) or die( 'Invalid Token' );
 ?>
 
 <!-- forme searchs -->
@@ -43,6 +51,7 @@ $session = JFactory::getSession();
                       <?php } ?>
                   </select>
           <div class="clearfix"></div>
+          <!-- <?php echo JHtml::_( 'form.token' ); ?> -->
           <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="btn btn-primary btn-lg right" />
       </div>
           </form>
