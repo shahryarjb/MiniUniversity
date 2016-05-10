@@ -152,6 +152,13 @@ span.licens {
    width: 98%;
    color: #86A678;
 }
+.bg-warning.pads {
+  padding: 15px 15px 15px 0;
+   font-family: IRANSans;
+   font-size: 18px;
+   /*width: 98%;*/
+   color: #777153;
+}
 .bg-success.padss {
   padding: 15px 15px 15px 0;
    font-family: IRANSans;
@@ -274,7 +281,7 @@ span.fonts.size {
     margin-top: -3px;
 }
 .fa.fa-check-circle.useronf {
-  font-size: 30px;
+  font-size: 35px;
 }
 .back2 {
   background: #F7F7F7;
@@ -668,4 +675,136 @@ span.dislibs{
 }
 .backlibs .span2.shtichnum .fa.fa-calendar{
   color:#ACD373;
+}
+#centers {
+    margin: 0 auto;
+    width: 310px;
+}
+@media print {
+    .no-print,
+    .tm-navbar.uk-navbar,
+    .tm-footer {
+    display: none;
+}
+}
+
+.btn.btn-primary.btn-lg.rights {
+    font-family: IRANSans;
+    margin-right: 5px;
+    padding: 20px 29px 20px 29px;
+    float: left;
+}
+#searchFormcards .col-sm-5.right.pad {
+  padding: 30px !important;
+}
+
+.g-recaptcha {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input#search-searchword {
+  min-width: 170px !important;
+}
+
+
+
+
+
+/*print*/
+.page
+{
+  font-family: tahoma;
+  font-size: 11px;
+  color: #000000;
+  vertical-align: top;
+  width: 660px;
+  direction: rtl;
+  margin: 0 auto;
+  
+}
+.Gridy
+{
+  border-style: groove;
+  text-align: center;
+  width: 100%;
+}
+.Kelid
+{
+  font-family: tahoma;
+  font-size: 12px;
+  background-color: #183C03;
+  color: #FFFFFF;
+  height: 30px;
+}
+.LblEsh
+{
+  color: #FF0000;
+}
+.Lblname
+{
+  vertical-align: middle;
+}
+.TblAks
+{
+  text-align: right;
+  height: 114px;
+  vertical-align: middle;
+  width: 600px;
+}
+.TblAsl
+{
+  border: medium double #000000;
+  width: 600px;
+}
+
+.Tbl1
+{
+  
+  width: 550px;
+  background-color: #F2FFF2;
+}
+.TdArm
+{
+  background-image: url(  '../Image/exam.jpg' );
+  height: 90px;
+}
+.TdFont
+{
+  text-align: right;
+}
+.TdAval
+{
+  text-align: right;
+  padding-top: 10px;
+}
+.TdGrid
+{
+  border: thin inset #000000;
+}
+.TdOnvan
+{
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+  font-weight: bold;
+}
+
+.TdLoginr
+{
+  width: 130px;
+  text-align: center;
+}
+.TdLoginc
+{
+  text-align: center;
+  
+}
+
+.TrLogin
+{
+  height: 70px;
+}
+
+table.Gridy th {
+  text-align: center !important;
 }
