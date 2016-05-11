@@ -7,8 +7,8 @@ class MiniuniversityRouter
 	public function build(&$query) {
 		$segments = array();
 		
-			
-		$menu    =   &JSite::getMenu();
+		$app = JFactory::getApplication();
+       		$menu = $app->getMenu();
 		$id    =   $menu->getActive()->id;
 
 		$db= JFactory::getDbo();
@@ -23,13 +23,11 @@ class MiniuniversityRouter
 		$db->setQuery($dbquery);
 		$searchId = $db->loadResult();
 		
-		if (($query['view'] == 'search') && (count($query) == 3)) 
-		
-		{
+		if (($query['view'] == 'search') && (count($query) == 3)) {
 			$segments [] = $query['view'];	 
 		}
 		
-		else if ($id == $searchId) {
+		elseif ($id == $searchId) {
 			
 			$segments [] = $query['view'];	 
 		}
@@ -39,6 +37,7 @@ class MiniuniversityRouter
 			$segments [] = $query['id'];
 			unset ($query['id']);
 		}
+
 		
 	   unset ($query['view']);
 		return $segments;
@@ -46,7 +45,7 @@ class MiniuniversityRouter
 	
 public function parse(&$segments) {
 
-	$vars = array();
+       $vars = array();
        $app = JFactory::getApplication();
        $menu = $app->getMenu();
        $item = $menu->getActive();
