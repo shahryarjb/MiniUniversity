@@ -2,11 +2,11 @@
 
 defined('_JEXEC') or die;
 
-class MiniuniversityRouter 
+class MiniuniversityRouter  
 {
 	public function build(&$query) {
 		$segments = array();
-		
+
 		$app = JFactory::getApplication();
        		$menu = $app->getMenu();
 		$id    =   $menu->getActive()->id;
@@ -22,7 +22,7 @@ class MiniuniversityRouter
  
 		$db->setQuery($dbquery);
 		$searchId = $db->loadResult();
-		
+	if (isset($query['view'])){
 		if (($query['view'] == 'search') && (count($query) == 3)) {
 			$segments [] = $query['view'];	 
 		}
@@ -31,7 +31,7 @@ class MiniuniversityRouter
 			
 			$segments [] = $query['view'];	 
 		}
-	
+	}	
 		if (isset($query['id'])) 
 		{
 			$segments [] = $query['id'];
