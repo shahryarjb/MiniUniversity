@@ -28,32 +28,33 @@ if (isset($this->params['bootstrap'])) {
       JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
       JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
   }
+JHtml::_('behavior.formvalidator');
 ?>
 <?php //echo JRoute::_('index.php?option=com_miniuniversity&view=search'); ?>
 <p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_WELCOME');?> </p>
 
 <!-- forme searchs -->
 
-    <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-horizontal">
+    <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-validate">
     <div class="form-group col-sm-12 right">
          <input name="searchword" id="mod-search-searchword" maxlength="<?php echo $maxlength; ?>" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
 
         <select class="col-sm-2 right cap input-lg" name='term'>
         <option value=""><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_TERM');?></option>
                      <?php foreach($this->terms as $i => $items) { ?>
-                      <option value="<?php echo (int)$items->id;  ?>"><?php echo htmlspecialchars($items->name);  ?></option>
+                      <option value="<?php echo (int)$items->id;  ?>" class="validate-numeric"><?php echo htmlspecialchars($items->name);  ?></option>
                       <?php } ?>
             </select>
 
              <select class="col-sm-2 right cap input-lg" name="book">
              <option value=""><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_COURSE');?></option>
                        <?php foreach($this->books as $i => $item) { ?>
-                      <option value="<?php echo (int)$item->id;?>"><?php echo htmlspecialchars($item->name);  ?></option>
+                      <option value="<?php echo (int)$item->id;?>" class="validate-numeric"><?php echo htmlspecialchars($item->name);  ?></option>
                       <?php } ?>
                   </select>
           <div class="clearfix"></div>
           <!-- <?php echo JHtml::_( 'form.token' ); ?> -->
-          <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="btn btn-primary btn-lg right" />
+          <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="validate btn btn-primary btn-lg right" />
       </div>
           </form>
                                                                         <!---  seraches ------>
