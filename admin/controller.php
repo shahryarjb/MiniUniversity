@@ -10,4 +10,4 @@ class MiniUniversityController extends JControllerLegacy {
 	protected $default_view = 'views';
 }
 
-echo 'in khat pak shavad'; // این خط پاک شود
+echo 'in khat pak shavad'.'<br>; // این خط پاک شود
