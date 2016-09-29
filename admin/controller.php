@@ -9,3 +9,4 @@ defined('_JEXEC') or die('Restricted access');
 class MiniUniversityController extends JControllerLegacy {
 	protected $default_view = 'views';
 }
+echo 'test;
