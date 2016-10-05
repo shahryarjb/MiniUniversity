@@ -15,11 +15,8 @@ JHtml::_('formbehavior.chosen', 'select');
 $listOrder     = $this->escape($this->filter_order);
 $listDirn      = $this->escape($this->filter_order_Dir);
 //call the method
-//$model = $this-MiniUniversityModelTeachers();
-// $model      = $this->getModel();
-// $items = $model->Saseri();
-//$person = new MiniUniversityModelTeachers();
-//$person->Saseri();
+ 
+
 echo "</br>";
 ?>
 <form action="index.php?option=com_miniuniversity&view=teachers" method="post" id="adminForm" name="adminForm">

@@ -22,6 +22,12 @@ abstract class MiniUniversityHelper {
 			'index.php?option=com_miniuniversity&view=teachers',
 			$submenu == 'teacher'
 		);
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_STUDENTS"),
+			'index.php?option=com_miniuniversity&view=students',
+			$submenu == ' student'
+		);
 
 		JSubMenuHelper::addEntry(
 		'<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_COURSE"),
@@ -49,13 +55,45 @@ abstract class MiniUniversityHelper {
 			$submenu == ' libresv'
 		);
 		
+
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_WARNS"),
+			'index.php?option=com_miniuniversity&view=warns',
+			$submenu == ' warn'
+		);
+		
 		
 		JSubMenuHelper::addEntry(
 			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_LIBCAT"),
 			'index.php?option=com_miniuniversity&view=libcats',
 			$submenu == ' libcat'
 		);
-
+        
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_SELF"),
+			'index.php?option=com_miniuniversity&view=selfs',
+			$submenu == ' self'
+		);
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_CLASS"),
+			'index.php?option=com_miniuniversity&view=classes',
+			$submenu == ' class'
+		);
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_SECTION"),
+			'index.php?option=com_miniuniversity&view=sections',
+			$submenu == ' section'
+		);
+		
+		JSubMenuHelper::addEntry(
+			 '<i class="fa fa-angle-double-left"></i>'. JText::_("COM_MINIUNIVERSITY_ADMIN_PANEL_SCHEDULE"),
+			'index.php?option=com_miniuniversity&view=schedules',
+			$submenu == ' schedule'
+		);
+		
+		
 
 		$document = JFactory::getDocument();
 		$document->addStyleDeclaration('.icon-48-miniuniversity ' .

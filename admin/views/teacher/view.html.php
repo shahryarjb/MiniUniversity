@@ -55,6 +55,7 @@ class MiniUniversityViewTeacher extends JViewLegacy
 
 		// Set the document
 		$this->setDocument();
+
 	}
 
 	/**

@@ -26,4 +26,6 @@ class MiniUniversityControllerTeacher extends JControllerForm {
 		return $model->save($data);
 		}
 	}
+	
+	
 }
