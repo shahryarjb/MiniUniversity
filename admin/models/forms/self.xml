@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form 				
+	addrulepath="/administrator/components/com_miniuniversity/models/rules"
+>
+	<fieldset
+	 name="details"
+	 label="COM_MINIUNIVERSITY_LIB_DETAILS" >
+		<field
+				name="id"
+				type="hidden"
+				/>
+				
+		<field
+				name="stu_num"
+				type="int"
+				label="COM_MINIUNIVERSITY_SELF_STU_NUM"
+				description=""
+				size="30"
+				required=""
+				default=""
+				validate=""
+				message=""
+				/>		
+		<field
+				name="name"
+				type="text"
+				label="COM_MINIUNIVERSITY_SELFS_NAME"
+				description=""
+				size="30"
+				required="true"
+				default=""
+				validate=""
+				message="COM_MINIUNIVERSITY_EMAIL_UNVALID"
+				/>
+
+		<field
+				name="family"
+				type="text"
+				label="COM_MINIUNIVERSITY_SELFS_FAMILY"
+				description=""
+				size="30"
+				required="true"
+				default=""
+				validate=""
+				message="COM_MINIUNIVERSITY_AUTHOR_UNVALID"
+				/>
+				
+		<field
+				name="firs_day"
+				type="calendar"
+				label="COM_MINIUNIVERSITY_SELF_RES_FIRST_DAY_LABEL"
+				description=""
+				size="30"
+				default=""
+				format="%Y-%m-%d %H:%M:%S"
+				filter="user_utc"
+				/>
+				
+		<field
+				name="last_day"
+				type="calendar"
+				label="COM_MINIUNIVERSITY_SELF_RES_LAST_DAY_RESV_LABEL"
+				description=""
+				size="30"
+				default=""
+				format="%Y-%m-%d %H:%M:%S"
+				filter="user_utc"
+				/>		
+				
+		<field
+				name="paid"
+				type="radio"
+				label="COM_MINIUNIVERSITY_SELF_PAID_LABEL"
+				description=""
+				size="30"
+				default=""
+				>
+				<option value="1">
+                COM_MINIUNIVERSITY_SELF_PAID_YES_LABEL</option>
+                <option value="0">
+                COM_MINIUNIVERSITY_SELF_PAID_NO_LABEL</option>
+		</field>
+		
+		<field
+				name="tracking_num"
+				type="int"
+				label="COM_MINIUNIVERSITY_SELF_TRACKING_NUM"
+				description=""
+				size="30"
+				required=""
+				default=""
+				validate=""
+				message=""
+				/>							
+        <field
+				name="ip"
+				type="int"
+				label="COM_MINIUNIVERSITY_SELF_IP_NUM"
+				description=""
+				size="30"
+				required=""
+				default=""
+				validate=""
+				message=""
+				/>
+				
+				
+	</fieldset>
+	
+</form>

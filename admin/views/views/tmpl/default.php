@@ -13,6 +13,12 @@ JHtml::_('formbehavior.chosen', 'select');
 JHtml::stylesheet(JURI::root().'administrator/components/com_miniuniversity/css/style.css');
 JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
+
+
+use Joomla\Registry\Registry;  // include PasswordHash with JUserHelper
+
+
+
 $model      = $this->getModel();
 //$items = $model->date();
 ?>
@@ -110,3 +116,4 @@ $model      = $this->getModel();
 
 	</div>
 </div>
+

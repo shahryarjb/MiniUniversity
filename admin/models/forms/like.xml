@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+				name="details"
+				label="COM_MINIUNIVERSITY_LIKE_DETAILS"
+	>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+			name="tech_id"
+			type="text"
+			label="COM_MINIUNIVERSITY_LIKE_TECHID_LABEL"
+			description="COM_MINIUNIVERSITY_LIKE_TECHID_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			readonly="readonly"
+			default=""
+		/>
+		<field
+			name="user_id"
+			type="text"
+			label="COM_MINIUNIVERSITY_LIKE_USERID_LABEL"
+			description="COM_MINIUNIVERSITY_LIKE_USERID_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			readonly="readonly"
+			default=""
+		/>
+		<field
+			name="date"
+			type="text"
+			label="COM_MINIUNIVERSITY_LIKE_DATE_LABEL"
+			description="COM_MINIUNIVERSITY_LIKE_DATE_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			readonly="readonly"
+			default=""
+		/>
+		<field
+			name="ip"
+			type="text"
+			label="COM_MINIUNIVERSITY_LIKE_IP_LABEL"
+			description="COM_MINIUNIVERSITY_LIKE_IP_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			readonly="readonly"
+			default=""
+		/>
+	</fieldset>
+	
+</form>
