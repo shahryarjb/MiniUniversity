@@ -68,3 +68,4 @@ class MiniUniversityController extends JControllerLegacy
 		$this->setRedirect(JRoute::_('index.php' . $uri->toString(array('query', 'fragment')), false));
 	    }
 }
+// mina test
