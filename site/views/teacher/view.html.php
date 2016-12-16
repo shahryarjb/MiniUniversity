@@ -17,6 +17,9 @@ class MiniUniversityViewTeacher extends JViewLegacy
       		
 		$books = $this->get('Book');
 		$this->books  = &$books;
+
+		$warning = $this->get('Warning');
+      		$this->warning  = &$warning;
 		
 		$params 		= JComponentHelper::getParams('com_miniuniversity');
 		$this->params   = $params->toArray();

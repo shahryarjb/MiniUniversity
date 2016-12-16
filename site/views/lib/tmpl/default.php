@@ -32,7 +32,6 @@ if(empty($this->items->libid)) {
 	$document   = JFactory::getDocument();
 	$document->setTitle($browserbar);	
 ?>
-	
 	 <p class="bg-danger pads"><i class="fa fa-bolt" aria-hidden="true"></i> <?php echo JText::_("COM_MINIUNIVERSITY_LIB_NOT_FOUND_OR_NOT_EXSIT"); ?> </p>
 <div class="bs-callout bs-callout-info col-sm-12" id="callout-helper-bg-specificity">
    	<h4 class="fonts"><?php echo JText::_("COM_MINIUNIVERSITY_ATTENTION"); ?></h4>
@@ -47,6 +46,55 @@ if(empty($this->items->libid)) {
 ?>
 <?php $time_stamp = $this->getModel('lib'); ?> 
 
+<!-- get user groups -->
+<?php
+       $user = JFactory::getUser();
+       $usergroup = $user->getAuthorisedGroups();
+?>
+
+
+<!-- show warnings -->
+
+<?php foreach($this->warning as $i => $item) {
+	$users = JFactory::getUser();
+    $usergroups = $users->getAuthorisedGroups();
+    if (!$users->guest) {
+       $userIds = $users->get( 'id' );
+    }
+
+   
+	    if(strtotime($item->begin_date) <= strtotime(date("Y/m/d")) && strtotime(date("Y/m/d")) <= strtotime($item->end_date)) {
+
+            if($item->place == 3 && $item->libidwarn == $this->items->libid || $item->cat_id == $this->items->cat_id || $item->place == 7 || $item->place == 8 && in_array($item->usergroups_id, $usergroup) || $item->place == 9 && $item->user_id == $user->id && !$users->guest && !empty($userIds)){
+                switch ($item->kind){
+                   case 0: ?>
+                <p class="bg-success pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                <?php break; ?>
+                </p>
+
+              <?php case 1: ?>
+                <p class="bg-warning pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                </p>
+                <?php break; 
+
+              case 2: ?>
+                <p class="bg-danger pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                </p>
+                <?php break; 
+
+              default:
+                echo "نوع اطلاعیه مشخص نشده است";
+                } 
+            } 
+        } 
+     
+} 
+?>
+
+<a href="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=formlib&resv=' . $this->items->slug ); ?>"> رزرو کتاب </a> 
 <p class="bg-success padss"><i class="fa fa-user"></i> <?php echo JText::_("COM_MINIUNIVERSITY_VIEW_LIB_DETAILS"); ?> </p>
 	</br>
 		<span class="fonts size"><?php echo JText::_("COM_MINIUNIVERSITY_LIB_DETAILS"); ?></span>

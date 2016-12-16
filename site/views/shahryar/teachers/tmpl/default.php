@@ -29,12 +29,9 @@ if (isset($this->params['bootstrap'])) {
       JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
   }
 JHtml::_('behavior.formvalidator');
-$app  = JFactory::getApplication();
 $Like = $this->getModel('teachers'); 
 ?>
-<?php if (checkAcl('main')) {?>
-	
-	
+<?php //echo JRoute::_('index.php?option=com_miniuniversity&view=search'); ?>
 <p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_WELCOME');?> </p>
 
 <!-- get user groups -->
@@ -83,7 +80,7 @@ $Like = $this->getModel('teachers');
 
 
 <!-- forme searchs -->
-<?php if (checkAcl('search')) {?>
+
     <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-validate">
     <div class="form-group col-sm-12 right">
          <input name="searchword" id="mod-search-searchword" maxlength="<?php echo $maxlength; ?>" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
@@ -106,9 +103,7 @@ $Like = $this->getModel('teachers');
           <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="validate btn btn-primary btn-lg right" />
       </div>
           </form>
-<?php }?>
                                                                         <!---  seraches ------>
-                                                                        
                                                                         <div class="clearfix"></div>
   <div class="container-fluid">
   <div class="row">
@@ -145,7 +140,7 @@ foreach($this->items as $i => $item) { ?>
                       $likeCount = count($Like->getLike($techId));
                       //----------------------------------------------------------------for like
                       ?>
-                      <?php //echo $this->form->getInput('techid'); ?>
+                      <?php echo $this->form->getInput('techid'); ?>
                       <input type="hidden" name="jform[techid]" value="<?php echo $techId; ?>" />
 
                       <input type="hidden" name="option" value="com_miniuniversity" />
@@ -214,5 +209,3 @@ foreach($this->items as $i => $item) { ?>
 ?>
 
     </div>
- <?php }  else {  echo 'you are not permited !' ; }?>   
-

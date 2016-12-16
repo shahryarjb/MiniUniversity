@@ -27,9 +27,6 @@ $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
       JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
       JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
   }
-  JHtml::_('behavior.formvalidator');
-$Like = $this->getModel('libs');   
-
 $session = JFactory::getSession();
 $app  = JFactory::getApplication();
 $model  = $this->getModel('libs');
@@ -81,31 +78,14 @@ $model  = $this->getModel('libs');
       
 }
 ?>
-<!-- forme searchs -->
 
-    <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-validate">
-    <div class="form-group col-sm-12 right">
-         <input name="searchwordlib" id="mod-search-searchword" maxlength="<?php echo $maxlength; ?>" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
-         <select class="col-sm-2 right cap input-lg" name='libcat'>
-        <option value=""><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_TERM');?></option>
-                     <?php foreach($this->libcats as $i => $items) { ?>
-                      <option value="<?php echo (int)$items->id;  ?>" class="validate-numeric"><?php echo htmlspecialchars($items->name);  ?></option>
-                      <?php } ?>
-            </select>
-         
-        
-          <div class="clearfix"></div>
-          <!-- <?php echo JHtml::_( 'form.token' ); ?> -->
-          <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="validate btn btn-primary btn-lg right" />
-      </div>
-          </form>
-                                                                        <!---  seraches ------>
 
 <!-- SESSIONS -->
 <?php 
-//
+
+
 if (($session->get('emptybook') != null)) {
-    echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i>".JText::_('دسترسی غیر مجاز !! آیدی شما به عنوان هکر ثبت شده است !' )."</p>";
+    echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i>".JText::_('دسترسی شما غیر مجاز هست. اطلاعات کاربری شما در سیستم ثبت گردیده.' )."</p>";
     }
 if (($session->get('successfull') != null)) {
     echo "<p class='erse bg-danger'><i class='fa fa-bell-slash-o' aria-hidden='true'></i>".JText::_('رزرو شما با موفقیت ثبت شد.' )."</p>";
@@ -147,7 +127,8 @@ foreach($this->items as $i => $item) { ?>
                 <?php } ?>
             </a>
                         <div class="clearfix"></div>
-    
+      
+
                 <div class="col-sm-12 pad-shema-lib">
                      <?php 
                      if (isset($this->params['count_resv_libs'])) {                     
@@ -160,39 +141,6 @@ foreach($this->items as $i => $item) { ?>
                      </i>
                      <?php } }?>
                            <button class="toltip" data-balloon-length="medium" data-balloon="<?php echo substr(htmlspecialchars($item->dis),0, 230); ?>" data-balloon-pos="up"><i class="fa fa-info-circle"></i></button>
-
-                           <?php 
-                                                         //----------------------------------------------------------------------------------------------------------------like 
-                                                        if (isset($this->params['star_teachers'])) {
-                                                            if ($this->params['star_teachers'] == 1) {
-                                                        ?>
-                                                                    
-                                                        
-                                                        <form class="form-validate" action="" method="post" id="" name="libs" style="padding: 0;margin: 0;float: left;">
-                                                            <?php 
-                                                            //---------------------------------------------------------------for like
-                                                            $libId = $item->id;
-                                                            $likeCount = count($Like->getLike($libId));
-                                                            //----------------------------------------------------------------for like
-                                                            ?>
-                                                            <?php echo $this->form->getInput('libid'); ?>
-                                                            <input type="hidden" name="jform[libid]" value="<?php echo $libId; ?>" />
-                                                           
-
-                                                            <input type="hidden" name="option" value="com_miniuniversity" />
-                                                            <input type="hidden" name="task" value="libs.submit" />
-                                                            <button type="submit" class="button" style="padding: 0;border: 0;background: transparent;box-shadow: none;">
-
-                                                            <i class="fa fa-star"><?php if ($likeCount != null ) echo $likeCount; else  echo 0; ?></i>
-
-                                                            </button>
-                                                            <?php echo JHtml::_('form.token'); ?>
-                                                        </form>   
-                                                
-                                                            <?php } }
-                                                            //---------------------------------------------------------------------------------------------------------------------like  
-                                                            ?>
-
                            <div class="clearfix"></div>  
                  </div>
                               <div class="clearfix"></div>

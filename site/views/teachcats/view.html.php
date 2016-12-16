@@ -6,19 +6,16 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class MiniUniversityViewLibs extends JViewLegacy
+class MiniUniversityViewTeachcats extends JViewLegacy
 {
 	function display($tpl = null)
 	{
 
 		$items = $this->get('Items');
       		$this->items  = &$items;
-		 $libcats = $this->get('Listlibcat');
-      		$this->libcats  = &$libcats;      
+
       	$warning = $this->get('Warning');
       		$this->warning  = &$warning;
-
-      		 $this->form = $this->get('Form'); // for like
 			  
 			  $params 		= JComponentHelper::getParams('com_miniuniversity');
 		$this->params   = $params->toArray();

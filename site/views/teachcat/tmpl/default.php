@@ -1,16 +1,16 @@
 <?php
+defined('_JEXEC') or die('Restricted access');
 /**
  * @copyright   Copyright (C) 2016 Open Source Matters, Inc. All rights reserved. ( https://trangell.com )
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @subpackage  com_MiniUniversity
  */
-defined('_JEXEC') or die('Restricted access');
-$upper_limit     = $lang->getUpperLimitSearchWord();
+ error_reporting (E_ALL ^ E_NOTICE); 
+ $upper_limit     = $lang->getUpperLimitSearchWord();
 $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('COM_MINIUNIVERSITY_ENTER_TEACHER_NAME'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
-
-if (isset($this->params['bootstrap'])) {
+ if (isset($this->params['bootstrap'])) {
     if ($this->params['bootstrap'] == 1) {
         JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/style.css');
         JHtml::stylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
@@ -28,62 +28,18 @@ if (isset($this->params['bootstrap'])) {
       JHtml::script(JURI::root().'components/com_miniuniversity/css/bootstrap.min.js');
       JHtml::stylesheet(JURI::root().'components/com_miniuniversity/css/font-awesome.css');
   }
+//$app 	= JFactory::getApplication();
+//$model 	= $this->getModel('libs');
 JHtml::_('behavior.formvalidator');
 $app  = JFactory::getApplication();
-$Like = $this->getModel('teachers'); 
+$Like = $this->getModel('teachcat'); 
 ?>
-<?php if (checkAcl('main')) {?>
-	
-	
-<p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_WELCOME');?> </p>
+<p class="bg-success pads"><i class="fa fa-user"></i> <?php echo JText::_('COM_MINIUNIVERSITY_LIB_WELCOME');?> </p>
 
-<!-- get user groups -->
-<?php
-  $user = JFactory::getUser();
-  $usergroup = $user->getAuthorisedGroups();
-?>
-
-<!-- show warnings -->
-<?php foreach($this->warning as $i => $item) {
-      $users = JFactory::getUser();
-      $usergroups = $users->getAuthorisedGroups();
-      if (!$users->guest) {
-        $userIds = $users->get( 'id' );
-      }
-
-     
-        if(strtotime($item->begin_date) <= strtotime(date("Y/m/d")) && strtotime(date("Y/m/d")) <= strtotime($item->end_date)) {
-          if($item->place == 0 || $item->place == 7 || $item->place == 8  && in_array($item->usergroups_id, $usergroup) || $item->place == 9 && $item->user_id == $user->id && !$users->guest && !empty($userIds)){
-            switch ($item->kind){
-                case 0: ?>
-                <p class="bg-success pads">
-                <?php echo htmlspecialchars($item->content); ?>
-                <?php break; ?>
-                </p>
-
-              <?php case 1: ?>
-                <p class="bg-warning pads">
-                <?php echo htmlspecialchars($item->content); ?>
-                </p>
-                <?php break; 
-
-              case 2: ?>
-                <p class="bg-danger pads">
-                <?php echo htmlspecialchars($item->content); ?>
-                </p>
-                <?php break; 
-
-              default:
-                echo "نوع اطلاعیه مشخص نشده است";
-            } 
-          }  
-        }  
-        
-}  ?>
 
 
 <!-- forme searchs -->
-<?php if (checkAcl('search')) {?>
+
     <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-validate">
     <div class="form-group col-sm-12 right">
          <input name="searchword" id="mod-search-searchword" maxlength="<?php echo $maxlength; ?>" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
@@ -106,9 +62,7 @@ $Like = $this->getModel('teachers');
           <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="validate btn btn-primary btn-lg right" />
       </div>
           </form>
-<?php }?>
                                                                         <!---  seraches ------>
-                                                                        
                                                                         <div class="clearfix"></div>
   <div class="container-fluid">
   <div class="row">
@@ -117,7 +71,7 @@ $Like = $this->getModel('teachers');
       <?php  } else { ?>
             
               <?php
-foreach($this->items as $i => $item) { ?>
+foreach($this->teacher as $i => $item) { ?>
    
             <div class="col-md-3" style="margin-bottom: 10px;">
             <div class="container-fluid sbord" style="padding: 0;">
@@ -141,8 +95,8 @@ foreach($this->items as $i => $item) { ?>
                 <form class="form-validate" action="" method="post" id="" name="teachers" style="padding: 0;margin: 0;float: left;">
                     <?php 
                       //---------------------------------------------------------------for like
-                      $techId = $item->id;
-                      $likeCount = count($Like->getLike($techId));
+                        $techId = $item->id;
+                       $likeCount = count($Like->getLike($techId));
                       //----------------------------------------------------------------for like
                       ?>
                       <?php //echo $this->form->getInput('techid'); ?>
@@ -169,9 +123,9 @@ foreach($this->items as $i => $item) { ?>
                               <div class="clearfix"></div>
                     <a href="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=teacher&id=' . str_replace(" ","-",$item->slug) ); ?>">
                                    <h3 class="nametich"><?php echo htmlspecialchars($item->name); ?> </h3>
-                    </a>	
-                              <div class="clearfix"></div>							
-			                     <span class="licens"><i class="fa fa-angle-double-left"></i> <?php  echo substr($item->tichlicens,0, 230) ?> </span>
+                    </a>  
+                              <div class="clearfix"></div>              
+                           <span class="licens"><i class="fa fa-angle-double-left"></i> <?php  echo substr($item->tichlicens,0, 230) ?> </span>
                                             <div class="clearfix"></div>
                                             <div class="col-sm-12 rtlpad">
                                                 <div class="col-md-1">
@@ -191,11 +145,11 @@ foreach($this->items as $i => $item) { ?>
                                                     if ((int)$item->cat_id != 0 AND htmlspecialchars((int)$item->term_id) > 0){
                                                         $book_count =(explode(',', $item->cat_id)); 
                                                         echo count($book_count);?></div>  
-											<?php	}
-													else{
-														echo '<i class="fa fa-ban"></i>';?></div>
-											<?php	}
-											?>
+                      <?php }
+                          else{
+                            echo '<i class="fa fa-ban"></i>';?></div>
+                      <?php }
+                      ?>
                                                     <div class="col-md-9 colortext"><i class="fa fa-angle-double-left"></i> <?php echo JText::_('COM_MINIUNIVERSITY_NUMBER_OF_COURSE'); ?></div>
                                                 </div>
                                                      <div class="clearfix"></div>
@@ -214,5 +168,5 @@ foreach($this->items as $i => $item) { ?>
 ?>
 
     </div>
- <?php }  else {  echo 'you are not permited !' ; }?>   
-
+         
+        

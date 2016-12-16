@@ -23,30 +23,21 @@ class MiniUniversityViewSearch extends JViewLegacy
 	  	foreach ($out as $result) {
 	  		$b = htmlspecialchars($result->dis);
 	  		$b = str_replace("<p>", " ", $b);
-			$c = @htmlspecialchars($result->email);
-	        if($c){
+			if(preg_match('/teachers/i', $_SERVER['HTTP_REFERER'])) {
 			$test= JRoute::_('index.php?option=com_miniuniversity&view=teacher&id=' . str_replace(" ","-",$result->slug) ); 
 			$optionHtml3 .= '<a href='.$test.'>' .  htmlspecialchars($result->name) .'</a>';
 		      	$optionHtml3 .=  '<p>'.substr($b,0, 560). "..." . '</p>';
-			} else {
-				$testlib= JRoute::_('index.php?option=com_miniuniversity&view=lib&id=' . str_replace(" ","-",$result->slug) ); 
-				$optionHtml3 .= '<a href='.$testlib.'>' .  htmlspecialchars($result->name) .'</a>';
+			} else if(preg_match('/libs/i', $_SERVER['HTTP_REFERER'])){
+				$test= JRoute::_('index.php?option=com_miniuniversity&view=lib&id=' . str_replace(" ","-",$result->slug) ); 
+				$optionHtml3 .= '<a href='.$test.'>' .  htmlspecialchars($result->name) .'</a>';
 		      	$optionHtml3 .=  '<p>'.substr($b,0, 560). "..." . '</p>';
-			}
-			
-	
-				
-
 			}
 		         	
 	
-		
+		}
 	  		$this->output = $optionHtml3; 
-			 
-
 	} else {
 	  		$this->output = '';
-		
 	}
 	
         	$libcats = $this->get('Listlibcat');
@@ -58,7 +49,7 @@ class MiniUniversityViewSearch extends JViewLegacy
       	$books = $this->get('ListBook');
       		$this->books  = &$books;
 			  
-
+	  
 			  
 	  
 	

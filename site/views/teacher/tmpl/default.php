@@ -35,6 +35,63 @@ require_once JPATH_SITE .'/components/com_miniuniversity/helpers/jdf.php';
 		$document->setTitle($browserbar);
 		$time_stamp = $this->getModel('teacher'); 
 ?>
+
+<!-- get user groups -->
+<?php
+    $user = JFactory::getUser();
+    $usergroup = $user->getAuthorisedGroups();
+?>
+
+<?php
+$a = explode("," , $this->items->cat_id);	 
+?>
+
+<!-- show warnings -->
+<?php foreach($this->warning as $i => $item) {
+      $users = JFactory::getUser();
+      $usergroups = $users->getAuthorisedGroups();
+      if (!$users->guest) {
+         $userIds = $users->get( 'id' );
+      }
+
+         	  	 
+        if(strtotime($item->begin_date) <= strtotime(date("Y/m/d")) && strtotime(date("Y/m/d")) <= strtotime($item->end_date)) {      
+          if($item->place == 1 && $item->tichidwarn == $this->items->tichid || $item->place == 5 && !empty($item->book_id) && in_array($item->book_id, $a) || $item->place == 4 || $item->place == 7 || $item->place == 8 && in_array($item->usergroups_id, $usergroup) || $item->place == 9 && $item->user_id == $user->id && !$users->guest && !empty($userIds) || $item->place == 10 && $item->term_id == $this->items->term_id){
+       	    if(empty($item->term_id) || $item->term_id == $this->items->term_id ) {
+       		   if(empty($item->book_id) || in_array($item->book_id, $a)) {
+   
+       
+                  switch ($item->kind){
+                    case 0: ?>
+                <p class="bg-success pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                <?php break; ?>
+                </p>
+
+              <?php case 1: ?>
+                <p class="bg-warning pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                </p>
+                <?php break; 
+
+              case 2: ?>
+                <p class="bg-danger pads">
+                <?php echo htmlspecialchars($item->content); ?>
+                </p>
+                <?php break; 
+
+              default:
+                echo "نوع اطلاعیه مشخص نشده است";
+                  } 
+                } 
+            }
+          }
+        }
+      
+} ?>
+
+
+
 <?php
   if (empty($this->items->tichid) or $this->items->published == 0) { 
 	  

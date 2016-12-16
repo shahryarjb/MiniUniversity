@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_MINIUNIVERSITY_VIEW_DEFAULT_DESC_LIST_SEMCAT">
+		
+	</layout>
+
+	<state>
+		<name>COM_MINIUNIVERSITY_VIEW_DEFAULT_DESC_LIST_SEMCAT</name>
+		<description><![CDATA[تنظیمات و انتخابا ها]]></description>
+		<fields name="request">
+			<fieldset name="request">
+				<field name="id" type="usercategory" size="3" default="0" label="COM_MINIUNIVERSITY_SELECT_USER" description="" />
+			</fieldset>
+		</fields>
+	</state>
+</metadata>

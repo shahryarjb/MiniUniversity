@@ -8,7 +8,6 @@ defined('_JEXEC') or die('Restricted access');
 $upper_limit     = $lang->getUpperLimitSearchWord();
 $maxlength       = $upper_limit;
 $text            = htmlspecialchars(JText::_('نام استاد را وارد کنید'));
-$textlib            = htmlspecialchars(JText::_('نام کتاب را وارد کنید'));
 $label           = htmlspecialchars(JText::_('MOD_SEARCH_LABEL_TEXT'));
   if (isset($this->params['bootstrap'])) {
     if ($this->params['bootstrap'] == 1) {
@@ -35,13 +34,10 @@ JHtml::_('behavior.formvalidator');
 
 <!-- forme searchs -->
 
-
     <form action="<?php echo JRoute::_('index.php?option=com_miniuniversity&view=search');?>" method="post" class="form-validate">
     <div class="form-group col-sm-12 right">
+         <input name="searchword" id="mod-search-searchword" maxlength="40" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
 
-         
-        <h3><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_TEACHERS_SEARCH'); ?></h3>
-        <input name="searchword" id="mod-search-searchword" maxlength="40" class="col-sm-5 right" type="search" placeholder="<?php echo $text; ?>" />
         <select class="col-sm-2 right cap input-lg" name='term'>
         <option value=""><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_TERM');?></option>
                      <?php foreach($this->terms as $i => $items) { ?>
@@ -55,24 +51,11 @@ JHtml::_('behavior.formvalidator');
                       <option value="<?php echo $item->id;  ?>" class="validate-numeric"><?php echo $item->name;  ?></option>
                       <?php } ?>
                   </select>
-                  <?php echo "</br></br></br>"; ?>
-             
-             <h3><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_LIBS_SEARCH'); ?></h3>
-              <input name="searchwordlib" id="mod-search-searchword" maxlength="40" class="col-sm-5 right" type="search" placeholder="<?php echo $textlib ; ?>" />
-        <select class="col-sm-2 right cap input-lg" name='libcat'>
-        <option value=""><?php echo JText::_('COM_MINIUNIVERSITY_SELECT_LIBCAT');?></option>
-                     <?php foreach($this->libcats as $i => $items) { ?>
-                      <option value="<?php echo $items->id;  ?>" class="validate-numeric"><?php echo $items->name;  ?></option>
-                      <?php } ?>
-            </select>
-               
           <div class="clearfix"></div>
           <!-- <?php echo JHtml::_( 'form.token' ); ?> -->
           <input type="submit" name="submit" value="<?php echo JText::_('COM_MINIUNIVERSITY_SEARCH');?>" class="validate btn btn-primary btn-lg right" />
       </div>
           </form>
-          
-    
                                                                         <!---  seraches ------>
                                                                         <div class="clearfix"></div>
 
@@ -91,6 +74,4 @@ JHtml::_('behavior.formvalidator');
   if ($session->isActive('searchbadch')) {
     $session->clear('searchbadch');
   }
-  
-
   ?>

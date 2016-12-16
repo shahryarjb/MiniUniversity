@@ -18,13 +18,16 @@ class MiniUniversityViewTeachers extends JViewLegacy
       		$this->terms  = &$terms;
 
       		$books = $this->get('ListBook');
-      		$this->books  = &$books;
+      		$this->books                      = &$books;
 
-      		$warning = $this->get('Warning');
-      		$this->warning  = &$warning;
+      		$warning                           = $this->get('Warning');
+      		$this->warning                  = &$warning;
 
-      		$params 		= JComponentHelper::getParams('com_miniuniversity');
-			$this->params   = $params->toArray();
+                                    $this->form                        = $this->get('Form'); // for like
+
+
+      		$params                           = JComponentHelper::getParams('com_miniuniversity');
+		$this->params                  = $params->toArray();
 		parent::display($tpl);
 	}
 }
